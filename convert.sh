@@ -19,7 +19,7 @@ for i in src/**/*.{png,gif,jpg}; do
         "$i" \
         -strip \
         -transparent white \
-         -background none \
+        -background none \
         -trim \
         -resize ${size}x${size} \
         -gravity center \
@@ -35,4 +35,5 @@ for i in src/**/*.{png,gif,jpg}; do
         # fit to 16x16
     # optimize png:
     optipng -o 9 -q "$distFile"
+    echo ""
 done
