@@ -17,6 +17,7 @@ for i in src/**/*.{png,gif,jpg}; do
     fi
     convert \
         "$i" \
+        -strip \
         -transparent white \
          -background none \
         -trim \
@@ -25,6 +26,7 @@ for i in src/**/*.{png,gif,jpg}; do
         -extent ${size}x${size} \
         "$distFile"
         # input file
+        # strip metadata
         # make background transparent
         # keep transparency
         # cut border
