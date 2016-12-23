@@ -6,11 +6,11 @@ import requests
 import yaml
 from bs4 import BeautifulSoup
 
-MODE = "socials"
+MODE = "searchengines"
 
 if MODE == "searchengines":
     yamlfile = "vendor/piwik/searchengine-and-social-list/SearchEngines.yml"
-    outputdir = "src/Referrers/images/searchengines/"
+    outputdir = "src/Referrers/images/searchEngines/"
 elif MODE == "socials":
     yamlfile = "vendor/piwik/searchengine-and-social-list/Socials.yml"
     outputdir = "src/Referrers/images/socials/"
@@ -58,18 +58,23 @@ for i, element in search_engines.items():
             if not offline:
                 soup = BeautifulSoup(r.content, "html.parser")
                 favicon_element = soup.find("link", rel="shortcut icon")
-                if not favicon_element:
-                    favicon_path = "/favicon.ico"
-                else:
+                if favicon_element and "href" in favicon_element:
                     favicon_path = favicon_element['href']
+                else:
+                    favicon_path = "/favicon.ico"
+
                 print(favicon_path)
                 # Works with relative and absolute favicon_paths:
                 favicon_url = urllib.parse.urljoin("http://" + url, favicon_path)
                 print(favicon_url)
-                r = requests.get(favicon_url, stream=True)
-                if r.status_code == 200:
-                    with open(outputdir + url + ".ico", 'wb') as f:
-                        r.raw.decode_content = True
-                        shutil.copyfileobj(r.raw, f)
+                try:
+                    r = requests.get(favicon_url, stream=True)
+                    if r.status_code == 200:
+                        with open(outputdir + url + ".ico", 'wb') as f:
+                            r.raw.decode_content = True
+                            shutil.copyfileobj(r.raw, f)
+
+                except requests.exceptions.ConnectionError:
+                    print("Error while downloading favicon")
             with open("finished.txt", "a") as myfile:
                 myfile.write(url + "\n")
