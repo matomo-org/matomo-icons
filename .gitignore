@@ -2,3 +2,4 @@
 *.log
 vendor/
 tmp
+finished.txt
