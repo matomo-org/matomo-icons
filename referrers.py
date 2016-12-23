@@ -1,8 +1,10 @@
 import shutil
 import sys
 
+import urllib.parse
 import requests
 import yaml
+from bs4 import BeautifulSoup
 
 MODE = "socials"
 
@@ -54,7 +56,17 @@ for i, element in search_engines.items():
                 offline = True
 
             if not offline:
-                r = requests.get("http://" + url + "/favicon.ico", stream=True)
+                soup = BeautifulSoup(r.content, "html.parser")
+                favicon_element = soup.find("link", rel="shortcut icon")
+                if not favicon_element:
+                    favicon_path = "/favicon.ico"
+                else:
+                    favicon_path = favicon_element['href']
+                print(favicon_path)
+                # Works with relative and absolute favicon_paths:
+                favicon_url = urllib.parse.urljoin("http://" + url, favicon_path)
+                print(favicon_url)
+                r = requests.get(favicon_url, stream=True)
                 if r.status_code == 200:
                     with open(outputdir + url + ".ico", 'wb') as f:
                         r.raw.decode_content = True
