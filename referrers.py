@@ -19,9 +19,9 @@ def download_favicon(homepage_html, url):
     """
     soup = BeautifulSoup(homepage_html, "html.parser")
     favicon_element = soup.find("link", rel="shortcut icon")
-    if favicon_element and "href" in favicon_element:
+    if favicon_element and favicon_element.has_attr("href"):
         favicon_path = favicon_element['href']
-    elif soup.find("link", rel="icon") and "href" in soup.find("link", rel="icon"):
+    elif soup.find("link", rel="icon") and soup.find("link", rel="icon").has_attr("href"):
         # some sites don't use "shortcut icon" for favicon
         # in this case we take the first other icon and hope it fits
         favicon_path = soup.find("link", rel="icon")["href"]
