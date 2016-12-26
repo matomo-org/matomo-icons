@@ -50,6 +50,6 @@ for i in src/**/*.{png,gif,jpg,ico}; do
         # center image
         # fit to 16x16
     # optimize png:
-    optipng -o 9 -q "$distFile"
+    pngquant -f --ext .png -s 1 --skip-if-larger --quality 70-95 "$distFile"
     echo ""
 done
