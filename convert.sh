@@ -16,7 +16,7 @@ for i in src/**/*.{png,gif,jpg,ico}; do
     fi
     if [[ $i == *.ico ]]
     then
-        if file "$i" | grep -E "HTML|empty|  data" # if no valid image
+        if file "$i" | grep -E "HTML|empty|ASCII text|: data|SVG" # if no valid image
         then
             rm "$i"
         else
@@ -30,26 +30,29 @@ for i in src/**/*.{png,gif,jpg,ico}; do
             i=$newIcon
         fi
     fi
-    convert \
-        "$i" \
-        -strip \
-        -transparent white \
-        -background none \
-        -trim \
-        -resize ${size}x${size} \
-        -gravity center \
-        -extent ${size}x${size} \
-        "$distFile"
-        # input file
-        # strip metadata
-        # make background transparent
-        # keep transparency
-        # cut border
-        # get only one image from .ico
-        # resize while keeping the aspect ratio
-        # center image
-        # fit to 16x16
-    # optimize png:
-    pngquant -f --ext .png -s 1 --skip-if-larger --quality 70-95 "$distFile"
-    echo ""
+    # if file (or symlink) -> didn't get deleted
+    if [ -e "$i" ]
+    then
+        convert \
+            "$i" \
+            -strip \
+            -transparent white \
+            -background none \
+            -trim \
+            -resize ${size}x${size} \
+            -gravity center \
+            -extent ${size}x${size} \
+            "$distFile"
+            # input file
+            # strip metadata
+            # make background transparent
+            # keep transparency
+            # cut border
+            # get only one image from .ico
+            # resize while keeping the aspect ratio
+            # center image
+            # fit to 16x16
+        # optimize png:
+        pngquant -f --ext .png -s 1 --skip-if-larger --quality 70-95 "$distFile"
+    fi
 done

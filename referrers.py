@@ -21,6 +21,10 @@ def download_favicon(homepage_html, url):
     favicon_element = soup.find("link", rel="shortcut icon")
     if favicon_element and "href" in favicon_element:
         favicon_path = favicon_element['href']
+    elif soup.find("link", rel="icon") and "href" in soup.find("link", rel="icon"):
+        # some sites don't use "shortcut icon" for favicon
+        # in this case we take the first other icon and hope it fits
+        favicon_path = soup.find("link", rel="icon")["href"]
     else:
         favicon_path = "/favicon.ico"
     print(favicon_path)
@@ -34,7 +38,7 @@ def download_favicon(homepage_html, url):
                 r.raw.decode_content = True
                 shutil.copyfileobj(r.raw, f)
 
-    except requests.exceptions.ConnectionError:
+    except (requests.exceptions.ConnectionError, requests.exceptions.InvalidSchema):
         print("Error while downloading favicon")
 
 
@@ -77,7 +81,7 @@ def main(search_engines):
 
 
 if __name__ == "__main__":
-    MODE = sys.argv[1]
+    MODE = sys.argv[1] if len(sys.argv) >= 2 else ""
 
     if MODE == "searchengines":
         yamlfile = "vendor/piwik/searchengine-and-social-list/SearchEngines.yml"

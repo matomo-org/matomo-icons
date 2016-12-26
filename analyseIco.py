@@ -10,10 +10,11 @@ icons = output.splitlines()
 regex = b"\d+x\d+"
 maxsize = 0
 maxpos = 0
-for i, icon in enumerate(icons):
-    resolution = re.findall(regex, icon)[0].decode()  # e.g. 16x16
+for i, file_line in enumerate(icons):
+    resolution = re.findall(regex, file_line)[0].decode()  # e.g. 16x16
     size = int(resolution.split("x")[0])  # e.g. 16
-    if size >= maxsize:
+    # "1-bit"-images are not very helpful
+    if size >= maxsize and " 1-bit" not in str(file_line):
         maxsize = size
         maxpos = i
 print(maxpos)
