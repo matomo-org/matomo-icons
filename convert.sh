@@ -39,7 +39,8 @@ for i in src/**/*.{png,gif,jpg,ico}; do
             -transparent white \
             -background none \
             -trim \
-            -resize ${size}x${size} \
+            -thumbnail ${size}x${size} \
+            -unsharp 0x1 \
             -gravity center \
             -extent ${size}x${size} \
             "$distFile"
@@ -50,6 +51,7 @@ for i in src/**/*.{png,gif,jpg,ico}; do
             # cut border
             # get only one image from .ico
             # resize while keeping the aspect ratio
+            # sharpen the image
             # center image
             # fit to 16x16
         # optimize png:
