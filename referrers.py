@@ -1,7 +1,7 @@
 import shutil
 import sys
 import urllib.parse
-
+import os.path
 import requests
 import yaml
 from bs4 import BeautifulSoup
@@ -12,11 +12,12 @@ def load_yaml(file):
         return yaml.load(stream)
 
 
-def download_favicon(homepage_html, url):
+def download_favicon(homepage_html, url, target_file):
     """
     Detect favicon if linked via "<link rel="shortcut icon" href="/favicon.ico">"
     otherwise assume /favicon.ico
     """
+    print(url, target_file)
     soup = BeautifulSoup(homepage_html, "html.parser")
     favicon_element = soup.find("link", rel="shortcut icon")
     if favicon_element and favicon_element.has_attr("href"):
@@ -34,11 +35,15 @@ def download_favicon(homepage_html, url):
     try:
         r = requests.get(favicon_url, stream=True)
         if r.status_code == 200:
-            with open(outputdir + url + ".ico", 'wb') as f:
+            with open(outputdir + target_file + ".ico", 'wb') as f:
                 r.raw.decode_content = True
                 shutil.copyfileobj(r.raw, f)
+                return True
 
-    except (requests.exceptions.ConnectionError, requests.exceptions.InvalidSchema):
+    except (
+            requests.exceptions.ConnectionError,
+            requests.exceptions.InvalidSchema,
+            requests.exceptions.TooManyRedirects):
         print("Error while downloading favicon")
 
 
@@ -49,35 +54,38 @@ def main(search_engines):
             urls = search_engine["urls"]
         else:
             urls = element
+        first_url = None
+        success = False
         for url in urls:
-            if "{}" not in url and "/" not in url and url not in finished:
+            if "{}" not in url and "/" not in url:
+                if first_url is None:
+                    first_url = url
                 print(url)
-                try:
-                    offline = False
-                    r = requests.get("http://" + url, timeout=15)
-                    r.raise_for_status()
-                except requests.exceptions.HTTPError as e:
-                    print("http://" + url + "  " + str(e), file=sys.stderr)
-                    offline = True
-                except requests.exceptions.ReadTimeout as e:
-                    print("http://" + url + "  " + "Timeout", file=sys.stderr)
-                    offline = True
-                except requests.exceptions.TooManyRedirects as e:
-                    print("http://" + url + "  " + "Too many Redirects", file=sys.stderr)
-                    offline = True
-                except requests.exceptions.ConnectionError as e:
-                    print("http://" + url + "  " + str(e), file=sys.stderr)
-                    offline = True
-                except requests.exceptions.RequestException as e:
-                    print("http://" + url + "  " + str(e.args[0].reason), file=sys.stderr)
-                    offline = True
+                if not os.path.isfile(outputdir + first_url + ".ico"):
+                    try:
+                        offline = False
+                        r = requests.get("http://" + url, timeout=15)
+                        r.raise_for_status()
+                    except requests.exceptions.ReadTimeout as e:
+                        print("http://" + url + "  " + "Timeout", file=sys.stderr)
+                        offline = True
+                    except requests.exceptions.TooManyRedirects as e:
+                        print("http://" + url + "  " + "Too many Redirects", file=sys.stderr)
+                        offline = True
+                    except (requests.exceptions.HTTPError, requests.exceptions.ConnectionError,
+                            requests.exceptions.TooManyRedirects) as e:
+                        print("http://" + url + "  " + str(e), file=sys.stderr)
+                        offline = True
+                    except requests.exceptions.RequestException as e:
+                        print("http://" + url + "  " + str(e.args[0].reason), file=sys.stderr)
+                        offline = True
 
-                if not offline:
-                    download_favicon(r.content, url)
-
-                # if finised processing url append to temp-file to be able to resume
-                with open("finished.txt", "a") as myfile:
-                    myfile.write(url + "\n")
+                    if not offline:
+                        success = download_favicon(r.content, url, first_url)
+                        if success:
+                            break
+                else:
+                    print("file already downloaded")
 
 
 if __name__ == "__main__":
