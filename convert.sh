@@ -33,7 +33,6 @@ for i in src/**/*.{png,gif,jpg,ico}; do
     then
         width=$(identify -ping -format "%w" "$i")
         height=$(identify -ping -format "%h" "$i")
-        echo "(${width}x${height})"
         if [[ $height -gt $size ]] && [[ $width -gt $size ]]
         then
             convert \
@@ -72,3 +71,7 @@ for i in src/**/*.{png,gif,jpg,ico}; do
         pngquant -f --ext .png -s 1 --skip-if-larger --quality 70-95 "$distFile"
     fi
 done
+
+convert --version > versions.txt
+echo "pngquant version:" >> versions.txt
+pngquant --version >> versions.txt
