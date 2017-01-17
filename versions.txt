@@ -1,5 +1,5 @@
-Version: ImageMagick 6.9.6-6 Q16 x86_64 20161125 http://www.imagemagick.org
-Copyright: Copyright (C) 1999-2016 ImageMagick Studio LLC
+Version: ImageMagick 6.9.7-0 Q16 x86_64 20161210 http://www.imagemagick.org
+Copyright: Copyright 1999-2017 ImageMagick Studio LLC
 License: http://www.imagemagick.org/script/license.php
 Features: Cipher DPC Modules OpenMP 
 Delegates (built-in): bzlib djvu fftw fontconfig freetype jbig jng jp2 jpeg lcms lqr ltdl lzma openexr pangocairo png tiff wmf x xml zlib
