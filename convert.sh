@@ -1,8 +1,8 @@
 #!/bin/bash
 shopt -s globstar
-size=48
 
 for i in src/**/*.{png,gif,jpg,ico}; do
+    size=48
     absDirname=$(dirname "$i")
     origFilename=$(basename "$i")
     code=${origFilename%.*}
@@ -27,6 +27,10 @@ for i in src/**/*.{png,gif,jpg,ico}; do
             convert ${i}\[$largestIcon\] $newIcon
             i=$newIcon
         fi
+    fi
+    if echo "$i" | grep "SEO" # if SEO image -> 72px(https://github.com/piwik/piwik/pull/11234)
+    then
+        size=72
     fi
     # if file (or symlink) -> didn't get deleted
     if [ -e "$i" ]
