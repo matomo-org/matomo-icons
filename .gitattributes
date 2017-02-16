@@ -1,6 +1,7 @@
 src/ export-ignore
 flag-icon-css export-ignore
 .gitattributes export-ignore  
+.gitmodules export-ignore
 .gitignore export-ignore
 analyseIco.py export-ignore
 composer.lock export-ignore
