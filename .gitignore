@@ -3,3 +3,4 @@
 vendor/
 tmp
 finished.txt
+__pycache__/

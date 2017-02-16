@@ -1,0 +1,12 @@
+src/ export-ignore
+flag-icon-css export-ignore
+.gitattributes export-ignore  
+.gitignore export-ignore
+analyseIco.py export-ignore
+composer.lock export-ignore
+*.sh export-ignore
+*.py export-ignore
+requirements.txt export-ignore
+unk.flag.svg export-ignore
+versions.txt export-ignore
+
