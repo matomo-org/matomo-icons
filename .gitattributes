@@ -10,4 +10,7 @@ composer.lock export-ignore
 requirements.txt export-ignore
 unk.flag.svg export-ignore
 versions.txt export-ignore
-
+*.gif diff=image
+*.jpg diff=image
+*.png diff=image
+*.ico diff=image
