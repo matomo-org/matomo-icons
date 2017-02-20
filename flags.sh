@@ -1,7 +1,7 @@
 #!/bin/bash
 set -x
 height=48
-targetDir="dist/UserCountry/images/flags/"
+targetDir="dist/UserCountry/images/flags"
 if [ ! -d "$targetDir" ]
 then
     mkdir -p "$targetDir"
@@ -19,3 +19,5 @@ done
 
 inkscape -f "unk.flag.svg" -h $height -e "dist/UserCountry/images/flags/xx.png"
 pngquant -f --ext .png -s 1 --skip-if-larger --quality 70-95 "dist/UserCountry/images/flags/xx.png"
+inkscape -f "ti.flag.svg" -h $height -e "dist/UserCountry/images/flags/ti.png"
+pngquant -f --ext .png -s 1 --skip-if-larger --quality 70-95 "dist/UserCountry/images/flags/ti.png"

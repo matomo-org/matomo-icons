@@ -41,8 +41,13 @@ for i in src/**/*.{png,gif,jpg,ico}; do
         then
             convert \
                 "$i" \
+                -fill transparent \
+                -fuzz 1% \
+                -floodfill +0+0 white \
+                -floodfill +"$((width-1))"+0 white \
+                -floodfill +0+"$((height-1))" white \
+                -floodfill +"$((width-1))"+"$((height-1))" white \
                 -strip \
-                -transparent white \
                 -background none \
                 -trim \
                 -thumbnail ${size}x${size}\> \
@@ -52,6 +57,7 @@ for i in src/**/*.{png,gif,jpg,ico}; do
                 "$distFile"
                 # input file
                 # strip metadata
+                # floodfill from every corner
                 # make background transparent
                 # keep transparency
                 # cut border
