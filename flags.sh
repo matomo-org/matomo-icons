@@ -1,13 +1,13 @@
 #!/bin/bash
 set -x
 height=48
-targetDir="dist/UserCountry/images/flags"
+targetDir="dist/flags"
 if [ ! -d "$targetDir" ]
 then
     mkdir -p "$targetDir"
 fi
 
-for i in src/UserCountry/images/flags/*.svg; do
+for i in src/flags/*.svg; do
     echo "$i"
     origFilename=$(basename "$i")
     code=${origFilename%.*}
@@ -17,7 +17,7 @@ for i in src/UserCountry/images/flags/*.svg; do
     pngquant -f --ext .png -s 1 --skip-if-larger --quality 70-95 "$distFile"
 done
 
-inkscape -f "unk.flag.svg" -h $height -e "dist/UserCountry/images/flags/xx.png"
-pngquant -f --ext .png -s 1 --skip-if-larger --quality 70-95 "dist/UserCountry/images/flags/xx.png"
-inkscape -f "ti.flag.svg" -h $height -e "dist/UserCountry/images/flags/ti.png"
-pngquant -f --ext .png -s 1 --skip-if-larger --quality 70-95 "dist/UserCountry/images/flags/ti.png"
+inkscape -f "unk.flag.svg" -h $height -e "dist/flags/xx.png"
+pngquant -f --ext .png -s 1 --skip-if-larger --quality 70-95 "dist/flags/xx.png"
+inkscape -f "ti.flag.svg" -h $height -e "dist//flags/ti.png"
+pngquant -f --ext .png -s 1 --skip-if-larger --quality 70-95 "dist//flags/ti.png"
