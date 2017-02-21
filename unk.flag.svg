@@ -12,7 +12,7 @@
    viewBox="0 0 640 480"
    version="1.1"
    id="svg8"
-   sodipodi:docname="unk.svg"
+   sodipodi:docname="unk.flag.svg"
    inkscape:version="0.92.0 r15299">
   <metadata
      id="metadata14">
@@ -22,7 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -38,34 +38,18 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1019"
+     inkscape:window-height="1015"
      id="namedview10"
      showgrid="false"
      inkscape:zoom="0.49166667"
-     inkscape:cx="326.10169"
-     inkscape:cy="-237.06272"
+     inkscape:cx="-158.98305"
+     inkscape:cy="-239.09662"
      inkscape:window-x="0"
-     inkscape:window-y="27"
+     inkscape:window-y="36"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg8" />
-  <path
-     d="M0 0h640v160H0z"
-     fill="red"
-     id="path2"
-     style="fill:#999999" />
-  <path
-     d="M0 160h640v160H0z"
-     id="path4"
-     fill="#00f"
-     style="fill:#ececec" />
-  <path
-     d="M0 320h640v160H0z"
-     fill="orange"
-     id="path6"
-     style="fill:#cccccc" />
   <g
-     aria-label="?
-"
+     aria-label="? "
      transform="matrix(1.3499623,0,0,1.3499623,-97.048349,116.0369)"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:133.33332825px;line-height:25px;font-family:'TeX Gyre Termes';-inkscape-font-specification:'TeX Gyre Termes';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      id="flowRoot832">

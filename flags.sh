@@ -10,7 +10,7 @@ fi
 for i in src/flags/*.svg; do
     echo "$i"
     origFilename=$(basename "$i")
-    code=${origFilename%.*}
+    code="${origFilename%.*}"
     distFile="${targetDir}/${code}.png"
     echo "$distFile"
     inkscape -f "$i" -h $height -e "$distFile"
@@ -21,3 +21,13 @@ inkscape -f "unk.flag.svg" -h $height -e "dist/flags/xx.png"
 pngquant -f --ext .png -s 1 --skip-if-larger --quality 70-95 "dist/flags/xx.png"
 inkscape -f "ti.flag.svg" -h $height -e "dist//flags/ti.png"
 pngquant -f --ext .png -s 1 --skip-if-larger --quality 70-95 "dist//flags/ti.png"
+
+for i in ac cp dg ea eu fx ic su ta uk an bu cs nt sf tp yu zr a1 a2 ap o1 cat
+do
+    icon="${targetDir}/${i}.png"
+    if [ ! -f "$icon" ]
+    then
+        echo -e "\033[31mWarning: No flag for $i, using default\033[0m"
+        cp "dist/flags/xx.png" "$icon"
+    fi
+done
