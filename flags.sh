@@ -44,3 +44,5 @@ do
         cp "dist/flags/xx.png" "$icon"
     fi
 done
+
+rm ${targetDir}/gb-*
