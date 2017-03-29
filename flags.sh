@@ -46,3 +46,4 @@ do
 done
 
 rm ${targetDir}/gb-*
+rm ${targetDir}/un.png
