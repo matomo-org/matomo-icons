@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="svg4256"
+   width="100.86688"
+   height="86.826897"
+   viewBox="0 0 100.86688 86.827001"
+   sodipodi:docname="Sony.svg"
+   inkscape:version="0.92.1 r15371">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1278"
+     inkscape:window-height="741"
+     id="namedview6"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="2.0308107"
+     inkscape:cx="60.451234"
+     inkscape:cy="29.215183"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg4256" />
+  <metadata
+     id="metadata4264">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs4262" />
+  <path
+     id="path4258"
+     d="m 45.561706,0 c -9.65,0 -20.613,1.805 -29.928,5.965 C 7.0367058,9.801 -2.9417374e-4,16.005 -2.9417374e-4,26.29 -0.00429417,35.553 5.8827058,40.978 5.7227058,40.828 c 2.504,2.305 6.5350002,6.23 17.0740002,8.535 4.71,1.03 14.78,2.612 24.808,3.66 9.954,1.05 19.75,2.048 23.74,3.058 3.17,0.807 8.495,1.906 8.495,7.88 0,5.95 -5.61,7.766 -6.585,8.16 -0.974,0.385 -7.704,3.473 -19.802,3.473 -8.932,0 -19.67,-2.686 -23.584,-4.086 -4.512,-1.606 -9.245,-3.73 -13.66,-9.123 -1.098,-1.337 -2.83,-5.014 -2.83,-8.655 H 2.4297058 V 84.41 H 14.599706 v -4.145 c 0,-0.472 0.59,-2.413 2.633,-1.49 2.542,1.155 10.004,4.126 17.806,5.755 6.397,1.338 10.522,2.297 18.475,2.297 12.976,0 19.947,-2.114 24.766,-3.49 4.54,-1.3 10.15,-3.634 14.707,-7.268 2.468,-1.965 7.880004,-7.002 7.880004,-16.145 0,-8.776 -4.710004,-14.223 -6.367004,-15.88 -2.257,-2.258 -5.014,-4.008 -7.887,-5.357 -2.503,-1.178 -6.453,-2.593 -9.685,-3.384 -6.273,-1.54 -20.457,-3.44 -27.24,-4.15 -7.113,-0.743 -19.452,-1.765 -24.38,-3.29 -1.494,-0.463 -4.54,-1.914 -4.54,-5.45 0,-2.515 1.393,-4.647 4.146,-6.37 4.37,-2.738 13.197,-4.44 22.398,-4.44 10.878,-0.04 20.09,2.447 25.95,5.067 1.993,0.89 4.325,2.168 6.177,3.68 2.09,1.704 5.024,5.245 6.085,10.184 h 9.83 V 3.828 h -10.976 v 3.104 c 0,1.002 -1.035,2.304 -2.992,1.228 -4.912,-2.577 -18.8,-8.137 -35.826,-8.16"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccccccscsccccccsccsccscccccsccccccccscc" />
+</svg>

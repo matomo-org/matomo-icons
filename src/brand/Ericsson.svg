@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="Layer_1"
+   data-name="Layer 1"
+   viewBox="0 0 28.347581 37.673228"
+   version="1.1"
+   sodipodi:docname="Ericsson.svg"
+   width="28.34758"
+   height="37.673229"
+   inkscape:version="0.92.1 r15371">
+  <metadata
+     id="metadata31">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Ericsson logo</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs29" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1285"
+     inkscape:window-height="766"
+     id="namedview27"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="4.207402"
+     inkscape:cx="14.230705"
+     inkscape:cy="9.6128936"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Layer_1" />
+  <title
+     id="title2">Ericsson logo</title>
+  <path
+     d="m 5.0978665,14.937894 a 3.78649,3.78649 0 1 1 -2.6048,-7.1108999 L 23.246727,0.24582406 a 3.744,3.744 0 0 1 4.86621,2.25600004 3.64463,3.64463 0 0 1 -2.2533,4.73932 z"
+     id="path4"
+     inkscape:connector-curvature="0"
+     style="fill:#00285e" />
+  <path
+     d="m 5.0978665,26.189304 a 3.78643,3.78643 0 1 1 -2.6048,-7.11078 l 20.7536605,-7.57251 a 3.73082,3.73082 0 0 1 4.86621,2.248 3.63723,3.63723 0 0 1 -2.2533,4.73611 z"
+     id="path6"
+     inkscape:connector-curvature="0"
+     style="fill:#00285e" />
+  <path
+     d="m 5.0978665,37.438814 a 3.78631,3.78631 0 1 1 -2.6048,-7.1105 l 20.7536605,-7.57169 a 3.72937,3.72937 0 0 1 4.86621,2.2457 3.63853,3.63853 0 0 1 -2.2533,4.7373 z"
+     id="path8"
+     inkscape:connector-curvature="0"
+     style="fill:#00285e" />
+</svg>
