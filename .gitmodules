@@ -1,5 +1,5 @@
 [submodule "flag-icon-css"]
-	path = flag-icon-css
+	path = submodules/flag-icon-css
 	url = https://github.com/lipis/flag-icon-css.git
 [submodule "submodules/browser-logos"]
 	path = submodules/browser-logos
