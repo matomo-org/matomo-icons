@@ -66,7 +66,21 @@ function resizeSmallIcon () {
 function resizeSvg () {
     inputfile=$1
     outputfile=$2
-    inkscape -f "$inputfile" -h $size -e "$outputfile"
+    if echo "$outputfile" | grep "flags"
+    then
+        inkscape -f "$inputfile" -h $size -e "$outputfile"
+    else
+        inkscape -f "$inputfile" -h 1024 -e "$outputfile"
+        mogrify \
+            -background none \
+            -trim \
+            -thumbnail ${size}x${size}\> \
+            -unsharp 0x1 \
+            -gravity center \
+            -extent ${size}x${size} \
+            "$outputfile"
+
+    fi
     optimizeIcon $outputfile
 }
 
