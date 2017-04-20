@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="56.860748"
+   height="78.575493"
+   id="svg16724"
+   sodipodi:docname="Pantech.svg"
+   inkscape:version="0.92.1 r15371">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1051"
+     id="namedview15"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="1.1966667"
+     inkscape:cx="152.50697"
+     inkscape:cy="39.287747"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg16724" />
+  <title
+     id="title16753">Pantech Logo</title>
+  <defs
+     id="defs16726" />
+  <metadata
+     id="metadata16729">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Pantech Logo</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     d="M 56.860748,27.627322 C 56.860748,11.204479 43.288296,0 27.60379,0 11.989882,0 0.11178005,12.292864 0.00882474,27.436119 H 0 v 41.67631 l 9.7778129,9.463064 V 27.389054 C 9.9160672,17.370031 18.181908,9.25127 28.33036,9.25127 c 10.227875,0 18.552547,8.248191 18.552547,18.381935 0,10.133744 -8.324672,18.381935 -18.552547,18.381935 H 14.543173 v 9.368933 H 27.60379 c 16.652286,0 29.256958,-10.439668 29.256958,-27.756751"
+     id="path14049"
+     style="fill:#0086a4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.9415803"
+     inkscape:connector-curvature="0" />
+</svg>
