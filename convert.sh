@@ -29,6 +29,7 @@ function resizeLargeIcon () {
         -floodfill +"$((width-1))"+"$((height-1))" white \
         -strip \
         -background none \
+		-fuzz 0 \
         -trim \
         -thumbnail ${size}x${size}\> \
         -unsharp 0x1 \
