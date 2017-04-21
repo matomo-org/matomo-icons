@@ -10,9 +10,9 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
-   width="201.53497"
-   height="149.76477"
-   viewBox="-0.61065 -0.61065 27.39125 20.323079"
+   width="211.53961"
+   height="159.76823"
+   viewBox="-0.61065 -0.61065 28.750349 21.714101"
    id="svg6903"
    sodipodi:docname="Softbank.svg"
    inkscape:version="0.92.1 r15371">
@@ -41,13 +41,13 @@
      inkscape:window-height="1051"
      id="namedview6"
      showgrid="false"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0"
-     inkscape:zoom="0.35058594"
-     inkscape:cx="516.06416"
-     inkscape:cy="74.882387"
+     fit-margin-top="5"
+     fit-margin-left="5"
+     fit-margin-right="5"
+     fit-margin-bottom="5"
+     inkscape:zoom="3.8630975"
+     inkscape:cx="99.237799"
+     inkscape:cy="80.697778"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -55,7 +55,7 @@
   <defs
      id="defs6905" />
   <path
-     d="M 26.7806,19.727406 H -0.61065 v -6.78625 H 26.7806 Z m 0,-13.5700002 H -0.61065 V -0.62759421 H 26.7806 Z"
+     d="M 27.46015,20.4239 H 0.06890001 V 13.63765 H 27.46015 Z m 0,-13.57 H 0.06890001 V 0.06890001 H 27.46015 Z"
      id="path4104"
      style="fill:#babcbe;fill-opacity:1;fill-rule:nonzero;stroke:none"
      inkscape:connector-curvature="0" />
