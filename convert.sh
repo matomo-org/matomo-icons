@@ -26,15 +26,15 @@ function resizeLargeIcon () {
         -floodfill +0+0 white \
         -floodfill +"$((width-1))"+0 white \
         -floodfill +0+"$((height-1))" white \
-        -floodfill +"$((width-1))"+"$((height-1))" white \
+        -floodfill +$((width-1))+$((height-1)) white \
         -strip \
         -background none \
 		-fuzz 0 \
         -trim \
-        -thumbnail ${size}x${size}\> \
+        -thumbnail "${size}"x"${size}"\> \
         -unsharp 0x1 \
         -gravity center \
-        -extent ${size}x${size} \
+        -extent "${size}"x"${size}" \
         "$outputfile"
         # input file
         # strip metadata
@@ -47,7 +47,7 @@ function resizeLargeIcon () {
         # sharpen the image
         # center image
         # fit to 16x16
-    optimizeIcon $outputfile
+    optimizeIcon "$outputfile"
 }
 function resizeSmallIcon () {
     inputfile=$1
@@ -61,7 +61,7 @@ function resizeSmallIcon () {
     echo -e "\033[31mWarning: This image is smaller than the default size (${width}x${height})"
     echo -e "$inputfile"
     echo  -e "\033[0m"
-    optimizeIcon $outputfile
+    optimizeIcon "$outputfile"
 }
 
 function resizeSvg () {
@@ -69,20 +69,20 @@ function resizeSvg () {
     outputfile=$2
     if echo "$outputfile" | grep "flags"
     then
-        inkscape -f "$inputfile" -h $size -e "$outputfile"
+        inkscape -f "$inputfile" -h "$size" -e "$outputfile"
     else
         inkscape -f "$inputfile" -h 1024 -e "$outputfile"
         mogrify \
             -background none \
             -trim \
-            -thumbnail ${size}x${size}\> \
+            -thumbnail "${size}"x"${size}"\> \
             -unsharp 0x1 \
             -gravity center \
-            -extent ${size}x${size} \
+            -extent "${size}"x"${size}" \
             "$outputfile"
 
     fi
-    optimizeIcon $outputfile
+    optimizeIcon "$outputfile"
 }
 
 function optimizeIcon () {
@@ -102,17 +102,17 @@ function handleMultisizeIco () {
         fi
         largestIcon=$(python analyseIco.py "$1")
         newIcon="tmp/${code}.ico"
-        convert ${i}\[$largestIcon\] $newIcon
-        echo $newIcon # "return"
+        convert "${i}"\["$largestIcon"\] "$newIcon"
+        echo "$newIcon" # "return"
     fi
 }
 
 function fixFlags () {
-    height=$1
+    height="$1"
     targetDir="dist/flags"
     resizeSvg "unk.flag.svg" "dist/flags/xx.png"
     resizeSvg "ti.flag.svg" "dist/flags/ti.png"
-    inkscape -f "ti.flag.svg" -h $height -e "dist//flags/ti.png"
+    inkscape -f "ti.flag.svg" -h "$height" -e "dist//flags/ti.png"
 
     for i in ac cp dg ea eu fx ic su ta uk an bu cs nt sf tp yu zr a1 a2 ap o1 cat
     do
@@ -142,7 +142,7 @@ function loopThrough () {
         fi
         if [[ $i == *.ico ]]
         then
-            i=$(handleMultisizeIco $i $code)
+            i=$(handleMultisizeIco "$i" "$code")
         fi
         if echo "$i" | grep "SEO" # if SEO image -> 72px(https://github.com/piwik/piwik/pull/11234)
         then
@@ -150,7 +150,7 @@ function loopThrough () {
         fi
         if [[ $i == *.svg ]]
         then
-            resizeSvg $i $distFile
+            resizeSvg "$i" "$distFile"
             continue
         fi
         # if file (or symlink) -> didn't get deleted
@@ -160,19 +160,21 @@ function loopThrough () {
             height=$(identify -ping -format "%h" "$i")
             if [[ $height -gt $size ]] && [[ $width -gt $size ]]
             then
-                resizeLargeIcon $i $distFile
+                resizeLargeIcon "$i" "$distFile"
             else
-                resizeSmallIcon $i $distFile
+                resizeSmallIcon "$i" "$distFile"
             fi
         fi
     done
 }
 
 function saveVersions () {
-    convert --version > versions.txt
-    echo "pngquant version:" >> versions.txt
-    pngquant --version >> versions.txt
-    inkscape --version >> versions.txt
+    {
+        convert --version
+        echo "pngquant version:"
+        pngquant --version
+        inkscape --version
+    } > versions.txt
 }
 function main () {
     loopThrough
