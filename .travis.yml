@@ -1,4 +1,4 @@
-language: bash
+language: python
 
 # Use container-based infrastructure for quicker build start-up
 sudo: false
@@ -12,6 +12,7 @@ addons:
 
 script:
  - 'shellcheck *.sh'
+ - python tests.py
 
 matrix:
   fast_finish: true
