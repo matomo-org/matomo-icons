@@ -12,10 +12,8 @@
 #
 # You should have received a copy of the GNU General Public License along with
 # this program.  If not, see <http://www.gnu.org/licenses/>.
-import os
-
 import glob
-
+import os
 import sys
 
 ignored_source_files = [
@@ -29,21 +27,33 @@ ignored_source_files = [
 
 def test_if_all_icons_are_converted():
     global error
-    source_files = []
     for filetype in ["svg", "png", "gif", "jpg", "ico"]:
-        source_files += glob.glob("src/**/*.{}".format(filetype))
+        for file in glob.glob("src/**/*.{}".format(filetype)):
+            abs_dirname, filename = os.path.split(file)
+            code = os.path.splitext(filename)[0]
+            distfolder = "dist/" + abs_dirname[4:]
+            distfile = "{folder}/{code}.png".format(folder=distfolder, code=code)
 
-    for file in source_files:
-        abs_dirname, filename = os.path.split(file)
-        code = os.path.splitext(filename)[0]
-        distfolder = "dist/" + abs_dirname[4:]
-        distfile = "{folder}/{code}.png".format(folder=distfolder, code=code)
-
-        if not os.path.isfile(distfile) and file not in ignored_source_files:
-            print("{file} is missing (From {source})".format(file=distfile, source=file))
-            error = True
+            if not os.path.isfile(distfile) and file not in ignored_source_files:
+                print("{file} is missing (From {source})".format(file=distfile, source=file))
+                error = True
 
     return True
+
+
+def test_if_source_for_images():
+    global error
+    for icontype in ["brand", "browsers", "os", "plugins", "SEO"]:
+        for filetype in ["svg", "png", "gif", "jpg", "ico"]:
+            for source_file in glob.glob("src/{type}/*.{filetype}".format(type=icontype, filetype=filetype)):
+                if not os.path.islink(source_file):
+                    if not os.path.isfile(source_file + ".source") and not "UNK" in source_file:
+                        with open(source_file + ".source", "w") as text_file:
+                            print("Copied over from piwik repository", file=text_file)
+                        with open(source_file + ".todo", "w") as text_file:
+                            print("Replace with better icon", file=text_file)
+                        print("Source is missing for {file}".format(file=source_file))
+                        error = True
 
 
 if __name__ == '__main__':
@@ -51,5 +61,7 @@ if __name__ == '__main__':
 
     if 'TRAVIS_PULL_REQUEST' not in os.environ or not os.environ['TRAVIS_PULL_REQUEST']:
         test_if_all_icons_are_converted()
+
+    test_if_source_for_images()
 
     sys.exit(error)
