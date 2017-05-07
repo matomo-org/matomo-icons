@@ -48,10 +48,6 @@ def test_if_source_for_images():
             for source_file in glob.glob("src/{type}/*.{filetype}".format(type=icontype, filetype=filetype)):
                 if not os.path.islink(source_file):
                     if not os.path.isfile(source_file + ".source") and not "UNK" in source_file:
-                        with open(source_file + ".source", "w") as text_file:
-                            print("Copied over from piwik repository", file=text_file)
-                        with open(source_file + ".todo", "w") as text_file:
-                            print("Replace with better icon", file=text_file)
                         print("Source is missing for {file}".format(file=source_file))
                         error = True
 
