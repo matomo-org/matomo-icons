@@ -12,6 +12,7 @@
 #
 # You should have received a copy of the GNU General Public License along with
 # this program.  If not, see <http://www.gnu.org/licenses/>.
+import hashlib
 from glob import glob
 import os
 import sys
@@ -23,6 +24,17 @@ ignored_source_files = [
     "src/flags/gb-eng.svg",
     "src/flags/gb-nir.svg"
 ]
+
+placeholder_icon_filenames = {
+    "brand": "unk.png",
+    "browsers": "UNK.png",
+    "devices": "unknown.png",
+    "os": "UNK.png",
+    "searchEngines": "xx.png",
+    "socials": "xx.png"
+}
+
+placeholder_icon_hash = "398a623a3b0b10eba6d1884b0ff1713ee12aeafaa8efaf67b60a4624f4dce48c"
 
 
 def test_if_all_icons_are_converted():
@@ -62,6 +74,15 @@ def test_if_all_symlinks_are_valid():
             error = True
 
 
+def test_if_placeholder_icon_exist():
+    global error
+    for folder, filename in placeholder_icon_filenames.items():
+        file = "src/{folder}/{filename}".format(folder=folder, filename=filename)
+        if not (os.path.isfile(file) and hashlib.sha256(open(file, 'rb').read()).hexdigest() == placeholder_icon_hash):
+            print("The placeholder icon {path} is missing or invalid".format(path=file))
+            error = True
+
+
 if __name__ == '__main__':
     error = False
 
@@ -70,5 +91,5 @@ if __name__ == '__main__':
 
     test_if_source_for_images()
     test_if_all_symlinks_are_valid()
-
+    test_if_placeholder_icon_exist()
     sys.exit(error)
