@@ -47,7 +47,7 @@ def test_if_source_for_images():
         for filetype in ["svg", "png", "gif", "jpg", "ico"]:
             for source_file in glob("src/{type}/*.{filetype}".format(type=icontype, filetype=filetype)):
                 if not os.path.islink(source_file):
-                    if not os.path.isfile(source_file + ".source") and not "UNK" in source_file:
+                    if not os.path.isfile(source_file + ".source") and "UNK" not in source_file:
                         print("Source is missing for {file}".format(file=source_file))
                         error = True
 
@@ -57,8 +57,7 @@ def test_if_all_symlinks_are_valid():
     for file in glob("src/**/*"):
         if os.path.islink(file) and not os.path.exists(file):
             print(
-                "Symlink doesn't link to file (from {link} to {target}"
-                    .format(link=file, target=os.readlink(file))
+                "Symlink doesn't link to file (from {link} to {target}".format(link=file, target=os.readlink(file))
             )
             error = True
 
