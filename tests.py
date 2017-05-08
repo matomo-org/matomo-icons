@@ -12,7 +12,7 @@
 #
 # You should have received a copy of the GNU General Public License along with
 # this program.  If not, see <http://www.gnu.org/licenses/>.
-import glob
+from glob import glob
 import os
 import sys
 
@@ -28,7 +28,7 @@ ignored_source_files = [
 def test_if_all_icons_are_converted():
     global error
     for filetype in ["svg", "png", "gif", "jpg", "ico"]:
-        for file in glob.glob("src/**/*.{}".format(filetype)):
+        for file in glob("src/**/*.{}".format(filetype)):
             abs_dirname, filename = os.path.split(file)
             code = os.path.splitext(filename)[0]
             distfolder = "dist/" + abs_dirname[4:]
@@ -45,11 +45,22 @@ def test_if_source_for_images():
     global error
     for icontype in ["brand", "browsers", "os", "plugins", "SEO"]:
         for filetype in ["svg", "png", "gif", "jpg", "ico"]:
-            for source_file in glob.glob("src/{type}/*.{filetype}".format(type=icontype, filetype=filetype)):
+            for source_file in glob("src/{type}/*.{filetype}".format(type=icontype, filetype=filetype)):
                 if not os.path.islink(source_file):
                     if not os.path.isfile(source_file + ".source") and not "UNK" in source_file:
                         print("Source is missing for {file}".format(file=source_file))
                         error = True
+
+
+def test_if_all_symlinks_are_valid():
+    global error
+    for file in glob("src/**/*"):
+        if os.path.islink(file) and not os.path.exists(file):
+            print(
+                "Symlink doesn't link to file (from {link} to {target}"
+                    .format(link=file, target=os.readlink(file))
+            )
+            error = True
 
 
 if __name__ == '__main__':
@@ -59,5 +70,6 @@ if __name__ == '__main__':
         test_if_all_icons_are_converted()
 
     test_if_source_for_images()
+    test_if_all_symlinks_are_valid()
 
     sys.exit(error)
