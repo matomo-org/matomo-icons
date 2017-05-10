@@ -1,5 +1,7 @@
 # Piwik-Icons
 
+[![Build Status](https://travis-ci.org/piwik/piwik-icons.svg?branch=master)](https://travis-ci.org/piwik/piwik-icons)
+
 This reposistory provides the source files for the icons in [piwik](https://github.com/piwik/piwik) and the scripts used to resize them to a common size.
 
 ## Contributing
