@@ -16,6 +16,7 @@ import hashlib
 from glob import glob
 import os
 import sys
+from PIL import Image
 
 ignored_source_files = [
     "src/flags/un.svg",
@@ -33,6 +34,8 @@ placeholder_icon_filenames = {
     "searchEngines": "xx.png",
     "socials": "xx.png"
 }
+
+min_image_size = 48
 
 placeholder_icon_hash = "398a623a3b0b10eba6d1884b0ff1713ee12aeafaa8efaf67b60a4624f4dce48c"
 
@@ -78,18 +81,46 @@ def test_if_placeholder_icon_exist():
     global error
     for folder, filename in placeholder_icon_filenames.items():
         file = "src/{folder}/{filename}".format(folder=folder, filename=filename)
-        if not (os.path.isfile(file) and hashlib.sha256(open(file, 'rb').read()).hexdigest() == placeholder_icon_hash):
+        if not (os.path.isfile(file) and hashlib.sha256(open(file, "rb").read()).hexdigest() == placeholder_icon_hash):
             print("The placeholder icon {path} is missing or invalid".format(path=file))
             error = True
 
 
-if __name__ == '__main__':
+def test_if_icons_are_large_enough():
+    # ignore searchEngines and socials
+    for icontype in ["brand", "browsers", "devices", "flags", "os", "plugins", "SEO"]:
+        for filetype in ["png", "gif", "jpg", "ico"]:
+            for source_file in glob("src/{type}/*.{filetype}".format(type=icontype, filetype=filetype)):
+                im = Image.open(source_file)
+                if im.size[0] < min_image_size or im.size[1] < min_image_size:
+                    print(
+                        "{file} is smaller ({width}x{height}) that the target size ({target}x{target})".format(
+                            file=source_file,
+                            width=im.size[0],
+                            height=im.size[1],
+                            target=min_image_size
+                        )
+                    )
+                if filetype in ["jpg", "gif", "ico"]:
+                    print("{file} is saved in a lossy image format ({filetype}). ".format(
+                        file=source_file,
+                        filetype=filetype
+                    ) + "Maybe try to find an PNG or SVG from another source.")
+
+
+if __name__ == "__main__":
     error = False
 
-    if 'TRAVIS_PULL_REQUEST' not in os.environ or not os.environ['TRAVIS_PULL_REQUEST']:
+    if "TRAVIS_PULL_REQUEST" not in os.environ or not os.environ["TRAVIS_PULL_REQUEST"]:
         test_if_all_icons_are_converted()
 
     test_if_source_for_images()
     test_if_all_symlinks_are_valid()
     test_if_placeholder_icon_exist()
+    if "TRAVIS" in os.environ and os.environ["TRAVIS"]:  # collapse on travis
+        print("travis_fold:start:small_icons")
+        test_if_icons_are_large_enough()
+        print("travis_fold:end:small_icons")
+    else:
+        test_if_icons_are_large_enough()
     sys.exit(error)
