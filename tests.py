@@ -119,6 +119,7 @@ if __name__ == "__main__":
     test_if_placeholder_icon_exist()
     if "TRAVIS" in os.environ and os.environ["TRAVIS"]:  # collapse on travis
         print("travis_fold:start:small_icons")
+        print("improvable icons: (click to expand)")
         test_if_icons_are_large_enough()
         print("travis_fold:end:small_icons")
     else:
