@@ -10,10 +10,10 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.0"
-   width="193.93243"
-   height="116.51016"
+   width="203.93243"
+   height="126.51017"
    id="svg2"
-   sodipodi:docname="Medion_Logo.svg"
+   sodipodi:docname="Medion.svg"
    inkscape:version="0.92.1 r15371">
   <metadata
      id="metadata17">
@@ -40,13 +40,13 @@
      inkscape:window-height="1051"
      id="namedview15"
      showgrid="false"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0"
-     inkscape:zoom="0.77996752"
-     inkscape:cx="272.42089"
-     inkscape:cy="-0.019260243"
+     fit-margin-top="5"
+     fit-margin-left="5"
+     fit-margin-right="5"
+     fit-margin-bottom="5"
+     inkscape:zoom="3.1198701"
+     inkscape:cx="92.581208"
+     inkscape:cy="49.377328"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -54,12 +54,12 @@
   <defs
      id="defs4" />
   <path
-     d="M 7.0384,0 H 63.84251 L 96.82192,56.06661 141.68162,0 h 52.25081 v 116.51017 h -47.23256 l 0.22446,-46.70348 -34.35823,46.70348 H 75.53039 L 7.0384,0"
+     d="M 12.0384,5 H 68.84251 L 101.82192,61.06661 146.68162,5 h 52.25081 v 116.51017 h -47.23256 l 0.22446,-46.70348 -34.35823,46.70348 H 80.53039 L 12.0384,5"
      style="fill:#001e4c;fill-opacity:1;fill-rule:nonzero;stroke:none"
      id="path3824"
      inkscape:connector-curvature="0" />
   <path
-     d="m 0,31.07151 48.30675,85.43866 H 0 V 31.07151"
+     d="m 5,36.07151 48.30675,85.43866 H 5 V 36.07151"
      style="fill:#001e4c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.09;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none"
      id="path3829"
      inkscape:connector-curvature="0" />
