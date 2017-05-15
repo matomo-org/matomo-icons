@@ -108,6 +108,15 @@ def test_if_icons_are_large_enough():
                     ) + "Maybe try to find an PNG or SVG from another source.")
 
 
+def test_if_dist_icons_are_square():
+    global error
+    for file in glob("dist/**/*.png"):
+        if "flags" not in file:
+            im = Image.open(file)
+            if im.size[0] != im.size[1]:
+                print("{file} isn't square ({width}x{height})".format(file=file, width=im.size[0], height=im.size[1]))
+                # error = True # TODO: Enable if non square icons are fixed
+
 if __name__ == "__main__":
     error = False
 
@@ -117,6 +126,7 @@ if __name__ == "__main__":
     test_if_source_for_images()
     test_if_all_symlinks_are_valid()
     test_if_placeholder_icon_exist()
+    test_if_dist_icons_are_square()
     if "TRAVIS" in os.environ and os.environ["TRAVIS"]:  # collapse on travis
         print("travis_fold:start:small_icons")
         print("improvable icons: (click to expand)")
