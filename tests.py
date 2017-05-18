@@ -35,6 +35,11 @@ placeholder_icon_filenames = {
     "socials": "xx.png"
 }
 
+ignore_that_icon_isnt_square = [
+    "dist/searchEngines/www.x-recherche.com.png",
+    "dist/plugins/gears.png"
+]
+
 min_image_size = 48
 
 placeholder_icon_hash = "398a623a3b0b10eba6d1884b0ff1713ee12aeafaa8efaf67b60a4624f4dce48c"
@@ -115,7 +120,9 @@ def test_if_dist_icons_are_square():
             im = Image.open(file)
             if im.size[0] != im.size[1]:
                 print("{file} isn't square ({width}x{height})".format(file=file, width=im.size[0], height=im.size[1]))
-                # error = True # TODO: Enable if non square icons are fixed
+                if file not in ignore_that_icon_isnt_square:
+                    error = True
+
 
 if __name__ == "__main__":
     error = False
