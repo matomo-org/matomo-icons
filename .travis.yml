@@ -10,6 +10,9 @@ addons:
     packages:
     - shellcheck
 
+before_install:
+  - git clone https://github.com/piwik/piwik-package.git tmp/piwik-package
+
 script:
  - 'shellcheck *.sh'
  - python tests.py

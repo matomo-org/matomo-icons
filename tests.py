@@ -17,6 +17,8 @@ from glob import glob
 import os
 import sys
 from PIL import Image
+import re
+import fnmatch
 
 ignored_source_files = [
     "src/flags/un.svg",
@@ -39,6 +41,8 @@ ignore_that_icon_isnt_square = [
     "dist/searchEngines/www.x-recherche.com.png",
     "dist/plugins/gears.png"
 ]
+
+build_script_regex = re.compile(r"rm [-rf]+ plugins/Morpheus/icons/(.*)")
 
 min_image_size = 48
 
@@ -124,6 +128,26 @@ def test_if_dist_icons_are_square():
                     error = True
 
 
+def test_if_build_script_is_deleting_all_unneeded_files():
+    with open("tmp/piwik-package/scripts/build-package.sh") as f:
+        build_script = f.read()
+    global error
+    deleted_files = []
+    all_files = []
+    for root, dirs, files in os.walk(".", topdown=False):
+        for name in files:
+            all_files.append(os.path.join(root, name))
+        for name in dirs:
+            all_files.append(os.path.join(root, name))
+    for pattern in build_script_regex.findall(build_script):
+        print(pattern)
+        deleted_files.extend(glob(pattern))
+    for file in all_files:
+        if not any(s in file for s in deleted_files) and not (file.startswith("./dist") or file.startswith("./tmp")) \
+                and file != "./README.md":
+            print("{file} should be deleted by the build script".format(file=file))
+
+
 if __name__ == "__main__":
     error = False
 
@@ -139,6 +163,8 @@ if __name__ == "__main__":
         print("improvable icons: (click to expand)")
         test_if_icons_are_large_enough()
         print("travis_fold:end:small_icons")
+        test_if_build_script_is_deleting_all_unneeded_files()
     else:
-        test_if_icons_are_large_enough()
+        print()
+        # test_if_icons_are_large_enough()
     sys.exit(error)
