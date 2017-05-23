@@ -140,12 +140,12 @@ def test_if_build_script_is_deleting_all_unneeded_files():
         for name in dirs:
             all_files.append(os.path.join(root, name))
     for pattern in build_script_regex.findall(build_script):
-        print(pattern)
         deleted_files.extend(glob(pattern))
     for file in all_files:
         if not any(s in file for s in deleted_files) and not (file.startswith("./dist") or file.startswith("./tmp")) \
                 and file != "./README.md":
             print("{file} should be deleted by the build script".format(file=file))
+            error = True
 
 
 if __name__ == "__main__":
