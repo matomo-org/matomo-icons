@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.0"
+   width="99.445648"
+   height="86.918579"
+   id="svg2325"
+   sodipodi:docname="Becker_Logo.svg"
+   inkscape:version="0.92.1 r15371">
+  <metadata
+     id="metadata14">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1051"
+     id="namedview12"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="2.6051815"
+     inkscape:cx="43.907218"
+     inkscape:cy="24.786583"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2325" />
+  <defs
+     id="defs2327" />
+  <path
+     inkscape:connector-curvature="0"
+     id="path2134"
+     style="fill:#d90025;fill-opacity:1;fill-rule:nonzero;stroke:none"
+     d="m 95.97771,22.81474 c -0.2671,5.34198 -2.38164,10.46139 -5.48667,15.13563 7.54556,7.45652 10.43914,18.58566 8.23557,28.37931 -2.52632,10.12751 -12.65383,18.25178 -22.40296,20.5889 H 9.59332 c -3.66148,0 -6.62184,-2.5597 -8.68073,-5.56457 L 0,75.0104 0.4563,7.7904 C 1.96986,3.67262 6.39926,0.77904 10.50591,0 L 73.8975,0.44517 h 0.75678 c 0.10016,0 0.20032,0 0.28936,0 11.58543,0.11129 21.0452,9.79364 21.0452,21.9244 z M 15.99258,15.5808 V 71.78295 H 69.0118 c 4.26246,-0.55645 8.83654,-0.33387 11.88593,-3.67261 2.04776,-3.11616 4.03987,-6.5662 3.19406,-10.90656 C 81.0424,40.28749 62.38997,49.52467 51.18292,44.40527 c -1.82518,-2.5597 -3.72826,-5.56457 -2.28147,-8.68073 1.82518,-2.33712 3.34987,-4.78553 6.39925,-5.1194 8.68073,-0.89034 12.4869,0.33387 20.56665,-0.89034 3.65036,-1.78066 3.88407,-4.67423 4.10666,-8.23556 -0.5342,-2.11454 -2.12567,-4.78553 -4.56295,-5.45328 L 15.99258,15.5808" />
+</svg>
