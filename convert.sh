@@ -21,6 +21,7 @@ function resizeLargeIcon () {
     outputfile=$2
     convert \
         "$inputfile" \
+        -bordercolor white -border 1x1 \
         -fill transparent \
         -fuzz 1% \
         -floodfill +0+0 white \
@@ -74,6 +75,7 @@ function resizeSvg () {
         inkscape -f "$inputfile" -h 1024 -e "$outputfile"
         mogrify \
             -background none \
+            -bordercolor transparent -border 1x1 \
             -trim \
             -thumbnail "${size}"x"${size}"\> \
             -unsharp 0x1 \
