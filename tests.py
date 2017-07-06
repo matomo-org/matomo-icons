@@ -147,6 +147,16 @@ def test_if_build_script_is_deleting_all_unneeded_files():
             error = True
 
 
+def test_if_icons_are_indicated_to_be_missing():
+    for file in glob("src/**/*.missing"):
+        print("{icon} is missing".format(icon=file[:-8]))
+
+
+def test_if_icons_are_indicated_to_be_improvable():
+    for file in glob("src/**/*.todo"):
+        print("{icon} could be improved".format(icon=file[:-5]))
+
+
 if __name__ == "__main__":
     error = False
 
@@ -160,6 +170,8 @@ if __name__ == "__main__":
     if "TRAVIS" in os.environ and os.environ["TRAVIS"]:  # collapse on travis
         print("travis_fold:start:small_icons")
         print("improvable icons: (click to expand)")
+        test_if_icons_are_indicated_to_be_missing()
+        test_if_icons_are_indicated_to_be_improvable()
         test_if_icons_are_large_enough()
         print("travis_fold:end:small_icons")
         test_if_build_script_is_deleting_all_unneeded_files()
