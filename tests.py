@@ -97,24 +97,23 @@ def test_if_placeholder_icon_exist():
 
 def test_if_icons_are_large_enough():
     # ignore searchEngines and socials
-    for icontype in ["brand", "browsers", "devices", "flags", "os", "plugins", "SEO"]:
-        for filetype in ["png", "gif", "jpg", "ico"]:
-            for source_file in glob("src/{type}/*.{filetype}".format(type=icontype, filetype=filetype)):
-                im = Image.open(source_file)
-                if im.size[0] < min_image_size or im.size[1] < min_image_size:
-                    print(
-                        "{file} is smaller ({width}x{height}) that the target size ({target}x{target})".format(
-                            file=source_file,
-                            width=im.size[0],
-                            height=im.size[1],
-                            target=min_image_size
-                        )
-                    )
-                if filetype in ["jpg", "gif", "ico"]:
-                    print("{file} is saved in a lossy image format ({filetype}). ".format(
+    for filetype in ["png", "gif", "jpg", "ico"]:
+        for source_file in glob("src/*/*.{filetype}".format(filetype=filetype)):
+            im = Image.open(source_file)
+            if im.size[0] < min_image_size or im.size[1] < min_image_size:
+                print(
+                    "{file} is smaller ({width}x{height}) that the target size ({target}x{target})".format(
                         file=source_file,
-                        filetype=filetype
-                    ) + "Maybe try to find an PNG or SVG from another source.")
+                        width=im.size[0],
+                        height=im.size[1],
+                        target=min_image_size
+                    )
+                )
+            if filetype in ["jpg", "gif", "ico"]:
+                print("{file} is saved in a lossy image format ({filetype}). ".format(
+                    file=source_file,
+                    filetype=filetype
+                ) + "Maybe try to find an PNG or SVG from another source.")
 
 
 def test_if_dist_icons_are_square():
