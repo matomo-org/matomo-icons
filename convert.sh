@@ -113,8 +113,6 @@ function fixFlags () {
     height="$1"
     targetDir="dist/flags"
     resizeSvg "unk.flag.svg" "dist/flags/xx.png"
-    resizeSvg "ti.flag.svg" "dist/flags/ti.png"
-    inkscape -f "ti.flag.svg" -h "$height" -e "dist//flags/ti.png"
 
     for i in ac cp dg ea eu fx ic su ta uk an bu cs nt sf tp yu zr a1 a2 ap o1 cat
     do
