@@ -39,7 +39,8 @@ placeholder_icon_filenames = {
 
 ignore_that_icon_isnt_square = [
     "dist/searchEngines/www.x-recherche.com.png",
-    "dist/plugins/gears.png"
+    "dist/plugins/gears.png",
+    "dist/brand/Landvo.png"
 ]
 
 build_script_regex = re.compile(r"rm [-rf]+ plugins/Morpheus/icons/(.*)")
