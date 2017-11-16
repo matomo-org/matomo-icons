@@ -108,10 +108,10 @@ if __name__ == "__main__":
 
     if MODE == "searchengines":
         yamlfile = "vendor/piwik/searchengine-and-social-list/SearchEngines.yml"
-        outputdir = "src/Referrers/images/searchEngines/"
+        outputdir = "src/searchEngines/"
     elif MODE == "socials":
         yamlfile = "vendor/piwik/searchengine-and-social-list/Socials.yml"
-        outputdir = "src/Referrers/images/socials/"
+        outputdir = "src/socials/"
     else:
         yamlfile = outputdir = False
         print('Invalid mode. Valid modes: "searchengines" or "socials"')
