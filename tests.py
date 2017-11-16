@@ -12,13 +12,14 @@
 #
 # You should have received a copy of the GNU General Public License along with
 # this program.  If not, see <http://www.gnu.org/licenses/>.
-import hashlib
-from glob import glob
-import os
 import sys
-from PIL import Image
+from glob import glob
+
+import hashlib
+import os
 import re
-import fnmatch
+import yaml
+from PIL import Image
 
 ignored_source_files = [
     "src/flags/un.svg",
@@ -48,6 +49,21 @@ build_script_regex = re.compile(r"rm [-rf]+ plugins/Morpheus/icons/(.*)")
 min_image_size = 48
 
 placeholder_icon_hash = "398a623a3b0b10eba6d1884b0ff1713ee12aeafaa8efaf67b60a4624f4dce48c"
+
+searchEnginesFile = "vendor/piwik/searchengine-and-social-list/SearchEngines.yml"
+socialsEnginesFile = "vendor/piwik/searchengine-and-social-list/Socials.yml"
+
+
+def load_yaml(file):
+    with open(file, 'r') as stream:
+        return yaml.load(stream)
+
+
+def image_exists(pathslug):
+    for filetype in ["svg", "png", "gif", "jpg", "ico"]:
+        if os.path.isfile(pathslug + "." + filetype):
+            return True
+    return False
 
 
 def test_if_all_icons_are_converted():
@@ -158,6 +174,24 @@ def test_if_icons_are_indicated_to_be_improvable():
         print("{icon} could be improved".format(icon=file[:-5]))
 
 
+def look_for_search_and_social_icon(source, mode, outputdir):
+    for i, element in source.items():
+        if mode == "searchengines":
+            search_engine = element[0]
+            urls = search_engine["urls"]
+        else:
+            urls = element
+        url = next((url for url in urls if "{}" not in url and "/" not in url), False)
+
+        if url and not image_exists(outputdir + url):
+            print(url)
+
+
+def test_if_all_search_and_social_sites_have_an_icon():
+    look_for_search_and_social_icon(load_yaml(searchEnginesFile), "searchengines", "src/searchEngines/")
+    look_for_search_and_social_icon(load_yaml(socialsEnginesFile), "socials", "src/socials/")
+
+
 if __name__ == "__main__":
     error = False
 
@@ -174,9 +208,10 @@ if __name__ == "__main__":
         test_if_icons_are_indicated_to_be_missing()
         test_if_icons_are_indicated_to_be_improvable()
         test_if_icons_are_large_enough()
+        test_if_all_search_and_social_sites_have_an_icon()
         print("travis_fold:end:small_icons")
         test_if_build_script_is_deleting_all_unneeded_files()
     else:
         print()
-        # test_if_icons_are_large_enough()
+        test_if_all_search_and_social_sites_have_an_icon()
     sys.exit(error)

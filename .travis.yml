@@ -12,6 +12,7 @@ addons:
 
 before_install:
   - git clone https://github.com/piwik/piwik-package.git tmp/piwik-package
+  - composer install
 
 script:
  - 'shellcheck *.sh'

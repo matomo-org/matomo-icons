@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "db041c0dc9f99f4a36466c5d5fff4493",
+    "content-hash": "91c091e41d6398ebc9858b24132b66af",
     "packages": [
         {
             "name": "piwik/searchengine-and-social-list",
-            "version": "1.3.5",
+            "version": "1.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/piwik/searchengine-and-social-list.git",
-                "reference": "8302a7414bd48f44916bd4858859607838ac2526"
+                "reference": "4ee85edc474a5e65cc785df470164037aaebc317"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/piwik/searchengine-and-social-list/zipball/8302a7414bd48f44916bd4858859607838ac2526",
-                "reference": "8302a7414bd48f44916bd4858859607838ac2526",
+                "url": "https://api.github.com/repos/piwik/searchengine-and-social-list/zipball/4ee85edc474a5e65cc785df470164037aaebc317",
+                "reference": "4ee85edc474a5e65cc785df470164037aaebc317",
                 "shasum": ""
             },
             "type": "library",
@@ -26,7 +26,7 @@
                 "Public Domain"
             ],
             "description": "Search engine and social network definitions used by Piwik",
-            "time": "2016-11-09T20:36:59+00:00"
+            "time": "2017-09-10T11:20:27+00:00"
         }
     ],
     "packages-dev": [],

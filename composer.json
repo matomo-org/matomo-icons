@@ -1,5 +1,7 @@
 {
     "require-dev": {
+    },
+    "require": {
         "piwik/searchengine-and-social-list": "^1.3"
     }
 }
