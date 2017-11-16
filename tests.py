@@ -158,8 +158,9 @@ def test_if_build_script_is_deleting_all_unneeded_files():
     for pattern in build_script_regex.findall(build_script):
         deleted_files.extend(glob(pattern))
     for file in all_files:
-        if not any(s in file for s in deleted_files) and not (file.startswith("./dist") or file.startswith("./tmp")) \
-                and file != "./README.md":
+        if not any(s in file for s in deleted_files) and not (
+                        file.startswith("./dist") or file.startswith("./tmp") or file.startswith("./vendor")
+        ) and file != "./README.md":
             print("{file} should be deleted by the build script".format(file=file))
             error = True
 
@@ -175,6 +176,8 @@ def test_if_icons_are_indicated_to_be_improvable():
 
 
 def look_for_search_and_social_icon(source, mode, outputdir):
+    global error
+    correct_files = []
     for i, element in source.items():
         if mode == "searchengines":
             search_engine = element[0]
@@ -184,7 +187,14 @@ def look_for_search_and_social_icon(source, mode, outputdir):
         url = next((url for url in urls if "{}" not in url and "/" not in url), False)
 
         if url and not image_exists(outputdir + url):
-            print(url)
+            print("icon for {icon} is missing".format(icon=url))
+            error = True
+        correct_files.append(url)
+        # print(correct_files)
+    for filetype in ["svg", "png", "gif", "jpg", "ico"]:
+        for file in glob(outputdir + "*.{ext}".format(ext=filetype)):
+            if os.path.splitext(os.path.basename(file))[0] not in correct_files:
+                print("{file} is not necessary".format(file=file))
 
 
 def test_if_all_search_and_social_sites_have_an_icon():
