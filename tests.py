@@ -26,7 +26,8 @@ ignored_source_files = [
     "src/flags/gb-wls.svg",
     "src/flags/gb-sct.svg",
     "src/flags/gb-eng.svg",
-    "src/flags/gb-nir.svg"
+    "src/flags/gb-nir.svg",
+    "src/flags/es-ct.svg"
 ]
 
 placeholder_icon_filenames = {
@@ -193,8 +194,10 @@ def look_for_search_and_social_icon(source, mode, outputdir):
         # print(correct_files)
     for filetype in ["svg", "png", "gif", "jpg", "ico"]:
         for file in glob(outputdir + "*.{ext}".format(ext=filetype)):
-            if os.path.splitext(os.path.basename(file))[0] not in correct_files:
+            domain = os.path.splitext(os.path.basename(file))[0]
+            if domain not in correct_files and domain != "xx":
                 print("{file} is not necessary".format(file=file))
+                error = True
 
 
 def test_if_all_search_and_social_sites_have_an_icon():
