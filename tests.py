@@ -12,6 +12,7 @@
 #
 # You should have received a copy of the GNU General Public License along with
 # this program.  If not, see <http://www.gnu.org/licenses/>.
+import json
 import sys
 from glob import glob
 
@@ -20,6 +21,8 @@ import os
 import re
 import yaml
 from PIL import Image
+from subprocess import Popen, PIPE
+from urllib.parse import urlparse
 
 ignored_source_files = [
     "src/flags/un.svg",
@@ -185,7 +188,8 @@ def look_for_search_and_social_icon(source, mode, outputdir):
             urls = search_engine["urls"]
         else:
             urls = element
-        url = next((url for url in urls if "{}" not in url and "/" not in url), False)
+        url = next((url for url in urls if "{}" not in url), False)
+        url = urlparse("https://" + url).netloc
 
         if url and not image_exists(outputdir + url):
             print("icon for {icon} is missing".format(icon=url))
@@ -215,6 +219,7 @@ if __name__ == "__main__":
     test_if_all_symlinks_are_valid()
     test_if_placeholder_icon_exist()
     test_if_dist_icons_are_square()
+    test_if_there_are_icons_for_all_device_detector_categories()
     if "TRAVIS" in os.environ and os.environ["TRAVIS"]:  # collapse on travis
         print("travis_fold:start:small_icons")
         print("improvable icons: (click to expand)")
