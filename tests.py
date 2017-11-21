@@ -208,6 +208,27 @@ def test_if_all_search_and_social_sites_have_an_icon():
     look_for_search_and_social_icon(load_yaml(searchEnginesFile), "searchengines", "src/searchEngines/")
     look_for_search_and_social_icon(load_yaml(socialsEnginesFile), "socials", "src/socials/")
 
+def test_if_there_are_icons_for_all_device_detector_categories():
+    process = Popen(["php", "devicedetector.php"], stdout=PIPE)
+    (output, err) = process.communicate()
+    exit_code = process.wait()
+    categories = json.loads(output)
+    for name, category in categories.items():
+        for code in category:
+            if name == "brand":
+                slug = category[code]
+            else:
+                slug = code
+            found = False
+            for filetype in ["svg", "png", "gif", "jpg", "ico"]:
+                # print("src/{type}/{code}.{ext}".format(type=name, code=code, ext=filetype))
+                if os.path.isfile("src/{type}/{slug}.{ext}".format(type=name, slug=slug, ext=filetype)):
+                    found = True
+            if not found:
+                print("icon for {icon} missing (should be at src/{type}/{slug}.{{png|svg}})".format(
+                    type=name, icon=category[code], slug=slug
+                ))
+
 
 if __name__ == "__main__":
     error = False
@@ -230,6 +251,5 @@ if __name__ == "__main__":
         print("travis_fold:end:small_icons")
         test_if_build_script_is_deleting_all_unneeded_files()
     else:
-        print()
         test_if_all_search_and_social_sites_have_an_icon()
     sys.exit(error)

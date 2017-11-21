@@ -2,6 +2,7 @@
     "require-dev": {
     },
     "require": {
-        "piwik/searchengine-and-social-list": "^1.3"
+        "piwik/searchengine-and-social-list": "dev-master",
+        "piwik/device-detector": "dev-master"
     }
 }
