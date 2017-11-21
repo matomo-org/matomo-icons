@@ -15,14 +15,14 @@
 import json
 import sys
 from glob import glob
+from subprocess import Popen, PIPE
+from urllib.parse import urlparse
 
 import hashlib
 import os
 import re
 import yaml
 from PIL import Image
-from subprocess import Popen, PIPE
-from urllib.parse import urlparse
 
 ignored_source_files = [
     "src/flags/un.svg",
@@ -208,6 +208,7 @@ def test_if_all_search_and_social_sites_have_an_icon():
     look_for_search_and_social_icon(load_yaml(searchEnginesFile), "searchengines", "src/searchEngines/")
     look_for_search_and_social_icon(load_yaml(socialsEnginesFile), "socials", "src/socials/")
 
+
 def test_if_there_are_icons_for_all_device_detector_categories():
     process = Popen(["php", "devicedetector.php"], stdout=PIPE)
     (output, err) = process.communicate()
@@ -221,7 +222,6 @@ def test_if_there_are_icons_for_all_device_detector_categories():
                 slug = code
             found = False
             for filetype in ["svg", "png", "gif", "jpg", "ico"]:
-                # print("src/{type}/{code}.{ext}".format(type=name, code=code, ext=filetype))
                 if os.path.isfile("src/{type}/{slug}.{ext}".format(type=name, slug=slug, ext=filetype)):
                     found = True
             if not found:
