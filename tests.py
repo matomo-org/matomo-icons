@@ -246,16 +246,17 @@ if __name__ == "__main__":
     test_if_all_symlinks_are_valid()
     test_if_placeholder_icon_exist()
     test_if_dist_icons_are_square()
-    test_if_there_are_icons_for_all_device_detector_categories()
     if "TRAVIS" in os.environ and os.environ["TRAVIS"]:  # collapse on travis
         print("travis_fold:start:improvable_icons")
         print("improvable icons: (click to expand)")
+        test_if_there_are_icons_for_all_device_detector_categories()
         test_if_icons_are_indicated_to_be_improvable()
         test_if_icons_are_large_enough()
         test_if_all_search_and_social_sites_have_an_icon()
         print("travis_fold:end:improvable_icons")
         test_if_build_script_is_deleting_all_unneeded_files()
     else:
+        test_if_there_are_icons_for_all_device_detector_categories()
         test_if_icons_are_indicated_to_be_improvable()
         test_if_icons_are_large_enough()
         test_if_all_search_and_social_sites_have_an_icon()
