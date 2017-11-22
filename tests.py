@@ -58,6 +58,14 @@ searchEnginesFile = "vendor/piwik/searchengine-and-social-list/SearchEngines.yml
 socialsEnginesFile = "vendor/piwik/searchengine-and-social-list/Socials.yml"
 
 
+def print_warning(string):
+    print("\033[93m⚠ " + string + "\033[0m")
+
+
+def print_error(string):
+    print("\033[91m⚠ " + string + "\033[0m")
+
+
 def load_yaml(file):
     with open(file, 'r') as stream:
         return yaml.load(stream)
@@ -80,7 +88,7 @@ def test_if_all_icons_are_converted():
             distfile = "{folder}/{code}.png".format(folder=distfolder, code=code)
 
             if not os.path.isfile(distfile) and file not in ignored_source_files:
-                print("{file} is missing (From {source})".format(file=distfile, source=file))
+                print_error("{file} is missing (From {source})".format(file=distfile, source=file))
                 error = True
 
     return True
@@ -93,7 +101,7 @@ def test_if_source_for_images():
             for source_file in glob("src/{type}/*.{filetype}".format(type=icontype, filetype=filetype)):
                 if not os.path.islink(source_file):
                     if not os.path.isfile(source_file + ".source") and "UNK" not in source_file:
-                        print("Source is missing for {file}".format(file=source_file))
+                        print_error("Source is missing for {file}".format(file=source_file))
                         error = True
 
 
@@ -101,7 +109,7 @@ def test_if_all_symlinks_are_valid():
     global error
     for file in glob("src/**/*"):
         if os.path.islink(file) and not os.path.exists(file):
-            print(
+            print_error(
                 "Symlink doesn't link to file (from {link} to {target}".format(link=file, target=os.readlink(file))
             )
             error = True
@@ -112,7 +120,7 @@ def test_if_placeholder_icon_exist():
     for folder, filename in placeholder_icon_filenames.items():
         file = "src/{folder}/{filename}".format(folder=folder, filename=filename)
         if not (os.path.isfile(file) and hashlib.sha256(open(file, "rb").read()).hexdigest() == placeholder_icon_hash):
-            print("The placeholder icon {path} is missing or invalid".format(path=file))
+            print_error("The placeholder icon {path} is missing or invalid".format(path=file))
             error = True
 
 
@@ -122,7 +130,7 @@ def test_if_icons_are_large_enough():
         for source_file in glob("src/*/*.{filetype}".format(filetype=filetype)):
             im = Image.open(source_file)
             if im.size[0] < min_image_size or im.size[1] < min_image_size:
-                print(
+                print_warning(
                     "{file} is smaller ({width}x{height}) that the target size ({target}x{target})".format(
                         file=source_file,
                         width=im.size[0],
@@ -131,7 +139,7 @@ def test_if_icons_are_large_enough():
                     )
                 )
             if filetype in ["jpg", "gif", "ico"]:
-                print("{file} is saved in a lossy image format ({filetype}). ".format(
+                print_warning("{file} is saved in a lossy image format ({filetype}). ".format(
                     file=source_file,
                     filetype=filetype
                 ) + "Maybe try to find an PNG or SVG from another source.")
@@ -143,9 +151,12 @@ def test_if_dist_icons_are_square():
         if "flags" not in file:
             im = Image.open(file)
             if im.size[0] != im.size[1]:
-                print("{file} isn't square ({width}x{height})".format(file=file, width=im.size[0], height=im.size[1]))
+                string = "{file} isn't square ({width}x{height})".format(file=file, width=im.size[0], height=im.size[1])
                 if file not in ignore_that_icon_isnt_square:
                     error = True
+                    print_error(string)
+                else:
+                    print_warning(string)
 
 
 def test_if_build_script_is_deleting_all_unneeded_files():
@@ -165,18 +176,18 @@ def test_if_build_script_is_deleting_all_unneeded_files():
         if not any(s in file for s in deleted_files) and not (
                         file.startswith("./dist") or file.startswith("./tmp") or file.startswith("./vendor")
         ) and file != "./README.md":
-            print("{file} should be deleted by the build script".format(file=file))
+            print_error("{file} should be deleted by the build script".format(file=file))
             error = True
 
 
 def test_if_icons_are_indicated_to_be_missing():
     for file in glob("src/**/*.missing"):
-        print("{icon} is missing".format(icon=file[:-8]))
+        print_warning("{icon} is missing".format(icon=file[:-8]))
 
 
 def test_if_icons_are_indicated_to_be_improvable():
     for file in glob("src/**/*.todo"):
-        print("{icon} could be improved".format(icon=file[:-5]))
+        print_warning("{icon} could be improved".format(icon=file[:-5]))
 
 
 def look_for_search_and_social_icon(source, mode, outputdir):
@@ -192,7 +203,7 @@ def look_for_search_and_social_icon(source, mode, outputdir):
         url = urlparse("https://" + url).netloc
 
         if url and not image_exists(outputdir + url):
-            print("icon for {icon} is missing".format(icon=url))
+            print_error("icon for {icon} is missing".format(icon=url))
             error = True
         correct_files.append(url)
         # print(correct_files)
@@ -200,7 +211,7 @@ def look_for_search_and_social_icon(source, mode, outputdir):
         for file in glob(outputdir + "*.{ext}".format(ext=filetype)):
             domain = os.path.splitext(os.path.basename(file))[0]
             if domain not in correct_files and domain != "xx":
-                print("{file} is not necessary".format(file=file))
+                print_error("{file} is not necessary".format(file=file))
                 error = True
 
 
@@ -225,7 +236,7 @@ def test_if_there_are_icons_for_all_device_detector_categories():
                 if os.path.isfile("src/{type}/{slug}.{ext}".format(type=name, slug=slug, ext=filetype)):
                     found = True
             if not found:
-                print("icon for {icon} missing (should be at src/{type}/{slug}.{{png|svg}})".format(
+                print_warning("icon for {icon} missing (should be at src/{type}/{slug}.{{png|svg}})".format(
                     type=name, icon=category[code], slug=slug
                 ))
 
