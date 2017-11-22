@@ -180,11 +180,6 @@ def test_if_build_script_is_deleting_all_unneeded_files():
             error = True
 
 
-def test_if_icons_are_indicated_to_be_missing():
-    for file in glob("src/**/*.missing"):
-        print_warning("{icon} is missing".format(icon=file[:-8]))
-
-
 def test_if_icons_are_indicated_to_be_improvable():
     for file in glob("src/**/*.todo"):
         print_warning("{icon} could be improved".format(icon=file[:-5]))
@@ -223,7 +218,7 @@ def test_if_all_search_and_social_sites_have_an_icon():
 def test_if_there_are_icons_for_all_device_detector_categories():
     process = Popen(["php", "devicedetector.php"], stdout=PIPE)
     (output, err) = process.communicate()
-    exit_code = process.wait()
+    process.wait()
     categories = json.loads(output)
     for name, category in categories.items():
         for code in category:
@@ -253,14 +248,17 @@ if __name__ == "__main__":
     test_if_dist_icons_are_square()
     test_if_there_are_icons_for_all_device_detector_categories()
     if "TRAVIS" in os.environ and os.environ["TRAVIS"]:  # collapse on travis
-        print("travis_fold:start:small_icons")
+        print("travis_fold:start:improvable_icons")
         print("improvable icons: (click to expand)")
-        test_if_icons_are_indicated_to_be_missing()
         test_if_icons_are_indicated_to_be_improvable()
         test_if_icons_are_large_enough()
         test_if_all_search_and_social_sites_have_an_icon()
-        print("travis_fold:end:small_icons")
+        print("travis_fold:end:improvable_icons")
         test_if_build_script_is_deleting_all_unneeded_files()
     else:
+        test_if_icons_are_indicated_to_be_improvable()
+        test_if_icons_are_large_enough()
         test_if_all_search_and_social_sites_have_an_icon()
+        test_if_build_script_is_deleting_all_unneeded_files()
+
     sys.exit(error)
