@@ -223,7 +223,7 @@ def test_if_there_are_icons_for_all_device_detector_categories():
     for name, category in categories.items():
         for code in category:
             if name == "brand":
-                slug = category[code]
+                slug = category[code].replace(" ", "_")
             else:
                 slug = code
             found = False
