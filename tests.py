@@ -59,11 +59,11 @@ socialsEnginesFile = "vendor/piwik/searchengine-and-social-list/Socials.yml"
 
 
 def print_warning(string):
-    print("\033[93m⚠ " + string + "\033[0m")
+    print("\033[33m⚠\033[0m " + string)
 
 
 def print_error(string):
-    print("\033[91m⚠ " + string + "\033[0m")
+    print("\033[31m⚠ " + string + "\033[0m")
 
 
 def load_yaml(file):
