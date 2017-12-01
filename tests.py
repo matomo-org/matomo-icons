@@ -13,7 +13,6 @@
 # You should have received a copy of the GNU General Public License along with
 # this program.  If not, see <http://www.gnu.org/licenses/>.
 import json
-import sys
 from glob import glob
 from subprocess import Popen, PIPE
 from urllib.parse import urlparse
@@ -21,6 +20,7 @@ from urllib.parse import urlparse
 import hashlib
 import os
 import re
+import sys
 import yaml
 from PIL import Image
 
@@ -174,7 +174,7 @@ def test_if_build_script_is_deleting_all_unneeded_files():
         deleted_files.extend(glob(pattern))
     for file in all_files:
         if not any(s in file for s in deleted_files) and not (
-                        file.startswith("./dist") or file.startswith("./tmp") or file.startswith("./vendor")
+                file.startswith("./dist") or file.startswith("./tmp") or file.startswith("./vendor")
         ) and file != "./README.md":
             print_error("{file} should be deleted by the build script".format(file=file))
             error = True
