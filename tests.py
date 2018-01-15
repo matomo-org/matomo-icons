@@ -54,8 +54,8 @@ min_image_size = 48
 
 placeholder_icon_hash = "398a623a3b0b10eba6d1884b0ff1713ee12aeafaa8efaf67b60a4624f4dce48c"
 
-searchEnginesFile = "tmp/searchengine-and-social-list/SearchEngines.yml"
-socialsEnginesFile = "tmp/searchengine-and-social-list/Socials.yml"
+searchEnginesFile = "vendor/piwik/searchengine-and-social-list/SearchEngines.yml"
+socialsEnginesFile = "vendor/piwik/searchengine-and-social-list/Socials.yml"
 
 
 def print_warning(string):

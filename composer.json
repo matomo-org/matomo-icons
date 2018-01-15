@@ -1,0 +1,8 @@
+{
+    "require-dev": {
+    },
+    "require": {
+        "piwik/searchengine-and-social-list": "dev-master",
+        "piwik/device-detector": "dev-master"
+    }
+}
