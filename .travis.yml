@@ -9,12 +9,13 @@ addons:
   apt:
     sources:
     - debian-sid    # Grab shellcheck from the Debian repo (o_O)
-    packages:
-    - shellcheck
 
 before_install:
   - git clone https://github.com/piwik/piwik-package.git tmp/piwik-package
   - composer install
+  - "sudo apt-get install cabal-install"
+  - "cabal update"
+  - "cabal install shellcheck"
 
 script:
  - 'shellcheck *.sh'
