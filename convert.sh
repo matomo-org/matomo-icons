@@ -25,9 +25,9 @@ function resizeLargeIcon () {
         -fill transparent \
         -fuzz 1% \
         -floodfill +0+0 white \
-        -floodfill +"$((width-1))"+0 white \
-        -floodfill +0+"$((height-1))" white \
-        -floodfill +$((width-1))+$((height-1)) white \
+        -floodfill +"$((width))"+0 white \
+        -floodfill +0+"$((height))" white \
+        -floodfill +$((width))+$((height)) white \
         -strip \
         -background none \
 		-fuzz 0 \
