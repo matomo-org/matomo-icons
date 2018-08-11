@@ -1,4 +1,4 @@
-Version: ImageMagick 6.9.10-2 Q16 x86_64 20180618 https://www.imagemagick.org
+Version: ImageMagick 6.9.10-8 Q16 x86_64 20180723 https://www.imagemagick.org
 Copyright: © 1999-2018 ImageMagick Studio LLC
 License: https://www.imagemagick.org/script/license.php
 Features: Cipher DPC Modules OpenMP 
