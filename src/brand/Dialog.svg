@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="33.563564"
+   height="47.071777"
+   viewBox="0 0 167.81782 235.35889"
+   version="1.1"
+   id="svg50"
+   sodipodi:docname="Dialog_Axiata_logo.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata56">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs54">
+    <defs
+       id="defs23">
+      <linearGradient
+         gradientUnits="userSpaceOnUse"
+         gradientTransform="matrix(0.93055097,0,0,1.0746322,315.53619,-9.7874354)"
+         id="svg_73"
+         spreadMethod="pad"
+         y2="69.819931"
+         x2="1661.1208"
+         y1="121.90817"
+         x1="1661.1208">
+        <stop
+           stop-color="#f1471d"
+           id="svg_81"
+           offset="0" />
+        <stop
+           stop-color="#f68712"
+           id="svg_80"
+           offset="1" />
+      </linearGradient>
+      <linearGradient
+         gradientUnits="userSpaceOnUse"
+         gradientTransform="matrix(0.93057622,0,0,1.074603,315.53619,-9.7874354)"
+         id="svg_68"
+         spreadMethod="pad"
+         y2="70.289513"
+         x2="1686.1993"
+         y1="70.289513"
+         x1="1635.5203">
+        <stop
+           stop-color="#292b66"
+           id="svg_79"
+           offset="0" />
+        <stop
+           stop-color="#c60e79"
+           id="svg_78"
+           offset="1" />
+      </linearGradient>
+      <linearGradient
+         gradientUnits="userSpaceOnUse"
+         gradientTransform="matrix(0.93048298,0,0,1.0747107,315.53619,-9.7874354)"
+         id="svg_56"
+         spreadMethod="pad"
+         y2="44.96817"
+         x2="1686.0135"
+         y1="44.96817"
+         x1="1635.6506">
+        <stop
+           stop-color="#b21935"
+           id="svg_77"
+           offset="0" />
+        <stop
+           stop-color="#ec1159"
+           id="svg_76"
+           offset="1" />
+      </linearGradient>
+      <clipPath
+         id="svg_74"
+         clipPathUnits="userSpaceOnUse">
+        <path
+           id="svg_75"
+           d="m -263.20001,851.49005 h 595.276 V 9.600036 h -595.276 z"
+           inkscape:connector-curvature="0" />
+      </clipPath>
+    </defs>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1051"
+     id="namedview52"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="2.56"
+     inkscape:cx="-74.901388"
+     inkscape:cy="5.435891"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg50" />
+  <g
+     id="svg_85"
+     transform="translate(-558.10069,-16.820564)">
+    <g
+       id="svg_84"
+       transform="matrix(1.41499,0,0,1.37487,-1841.93,-682.099)">
+      <title
+         id="title25">Layer 1</title>
+      <g
+         transform="matrix(1.25,0,0,-1.25,-147.049,705.702)"
+         id="svg_69">
+        <g
+           id="svg_70">
+          <g
+             id="svg_71">
+            <path
+               inkscape:connector-curvature="0"
+               style="fill:url(#svg_73)"
+               id="svg_72"
+               d="m 1522.0056,75.714005 47.431,27.382995 -47.431,27.39198 z" />
+          </g>
+        </g>
+      </g>
+      <g
+         transform="matrix(1.25,0,0,-1.25,-147.049,705.702)"
+         id="svg_63">
+        <g
+           id="svg_64">
+          <g
+             id="svg_65">
+            <g
+               id="svg_66">
+              <path
+                 inkscape:connector-curvature="0"
+                 style="fill:url(#svg_68)"
+                 id="svg_67"
+                 d="m 1522.0056,75.714005 v 0 l 47.431,-27.389996 v 54.772011 h -9e-4 z" />
+            </g>
+          </g>
+        </g>
+      </g>
+      <g
+         transform="matrix(1.25,0,0,-1.25,-147.049,705.702)"
+         id="svg_61">
+        <path
+           style="fill:#ee1e80;fill-rule:nonzero"
+           inkscape:connector-curvature="0"
+           id="svg_62"
+           d="m 1474.5566,48.324009 47.449,-27.393999 v 54.784994 z" />
+      </g>
+      <g
+         transform="matrix(1.25,0,0,-1.25,-147.049,705.702)"
+         id="svg_59">
+        <path
+           style="fill:#fab220;fill-rule:nonzero"
+           inkscape:connector-curvature="0"
+           id="svg_60"
+           d="m 1474.5566,157.87904 v -54.77203 l 47.449,27.384 z" />
+      </g>
+      <g
+         transform="matrix(1.25,0,0,-1.25,-147.049,705.702)"
+         id="svg_57">
+        <path
+           style="fill:#f68712;fill-rule:nonzero"
+           inkscape:connector-curvature="0"
+           id="svg_58"
+           d="m 1522.0056,130.48996 v 0 l -47.449,-27.38393 47.449,-27.392025 z" />
+      </g>
+      <g
+         transform="matrix(1.25,0,0,-1.25,-147.049,705.702)"
+         id="svg_52">
+        <g
+           id="svg_53">
+          <g
+             id="svg_54">
+            <path
+               inkscape:connector-curvature="0"
+               style="fill:url(#svg_56)"
+               id="svg_55"
+               d="m 1522.0056,20.931021 47.431,27.392988 -47.431,27.389996 z" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
