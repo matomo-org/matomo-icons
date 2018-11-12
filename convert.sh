@@ -24,10 +24,10 @@ function resizeLargeIcon () {
         -bordercolor white -border 1x1 \
         -fill transparent \
         -fuzz 1% \
-        -floodfill +0+0 transparent \
-        -floodfill +"$((width+1))"+0 transparent \
-        -floodfill +0+"$((height+1))" transparent \
-        -floodfill +$((width+1))+$((height+1)) transparent \
+        -draw "color 0,0 floodfill" \
+        -draw "color $((width+1)),0 floodfill" \
+        -draw "color 0,$((height+1)) floodfill" \
+        -draw "color $((width+1)),$((height+1)) floodfill" \
         -strip \
         -background none \
 		-fuzz 0 \
@@ -126,6 +126,7 @@ function fixFlags () {
 
     rm ${targetDir}/gb-*
     rm ${targetDir}/un.png
+    rm ${targetDir}/xk.png
     rm ${targetDir}/es-ct.png
 }
 
