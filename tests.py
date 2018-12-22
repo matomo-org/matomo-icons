@@ -30,7 +30,8 @@ ignored_source_files = [
     "src/flags/gb-sct.svg",
     "src/flags/gb-eng.svg",
     "src/flags/gb-nir.svg",
-    "src/flags/es-ct.svg"
+    "src/flags/es-ct.svg",
+    "src/flags/xk.svg"
 ]
 
 placeholder_icon_filenames = {
