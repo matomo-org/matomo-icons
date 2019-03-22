@@ -8,6 +8,7 @@ sudo: false
 before_install:
   - git clone https://github.com/piwik/piwik-package.git tmp/piwik-package
   - composer install
+  - yarn install
 
 script:
  - 'shellcheck *.sh'
