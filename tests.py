@@ -72,7 +72,7 @@ def print_error(string):
 
 def load_yaml(file):
     with open(file, 'r') as stream:
-        return yaml.load(stream)
+        return yaml.safe_load(stream)
 
 
 def image_exists(pathslug):
@@ -179,6 +179,7 @@ def test_if_build_script_is_deleting_all_unneeded_files():
     for file in all_files:
         if not any(s in file for s in deleted_files) and not (
                 file.startswith("./dist") or file.startswith("./tmp") or file.startswith("./vendor")
+                or file.startswith("./node_modules")
         ) and file != "./README.md":
             print_error("{file} should be deleted by the build script".format(file=file))
             error = True
