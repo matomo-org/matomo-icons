@@ -198,21 +198,21 @@ def test_if_there_are_icons_for_all_device_detector_categories(less_important_de
     (output, err) = process.communicate()
     process.wait()
     categories = json.loads(output)
-    for name, category in categories.items():
+    for icontype, category in categories.items():
         for code in category:
-            if name == "brand":
+            if icontype == "brand":
                 slug = category[code].replace(" ", "_")
             else:
                 slug = code
             found = False
             for filetype in ["svg", "png", "gif", "jpg", "ico"]:
-                if os.path.isfile("src/{type}/{slug}.{ext}".format(type=name, slug=slug, ext=filetype)):
+                if os.path.isfile("src/{type}/{slug}.{ext}".format(type=icontype, slug=slug, ext=filetype)):
                     found = True
             if not found:
                 warning = "icon for {icon} missing (should be at src/{type}/{slug}.{{png|svg}})".format(
-                    type=name, icon=category[code], slug=slug
+                    type=icontype, icon=category[code], slug=slug
                 )
-                if "|".join([name, slug]) in less_important_device_detector_icons:
+                if slug in less_important_device_detector_icons[icontype]:
                     print_warning(warning)
                 else:
                     print_error(warning)
