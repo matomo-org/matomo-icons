@@ -3,8 +3,8 @@
 
 
 browser-logos@alrra/browser-logos:
-  version "49.1.0"
-  resolved "https://codeload.github.com/alrra/browser-logos/tar.gz/88a8230471acab9d490c730be560f16167580525"
+  version "52.4.1"
+  resolved "https://codeload.github.com/alrra/browser-logos/tar.gz/6f42715ed652ae5716f0f669e34bf76958d238fc"
 
 flag-icon-css@^3.3.0:
   version "3.3.0"
