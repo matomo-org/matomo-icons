@@ -24,34 +24,6 @@ from urllib.parse import urlparse
 import yaml
 from PIL import Image
 
-ignored_source_files = [
-    "src/flags/un.svg",
-    "src/flags/gb-wls.svg",
-    "src/flags/gb-sct.svg",
-    "src/flags/gb-eng.svg",
-    "src/flags/gb-nir.svg",
-    "src/flags/es-ct.svg",
-    "src/flags/xk.svg"
-]
-
-placeholder_icon_filenames = {
-    "brand": "unk.png",
-    "browsers": "UNK.png",
-    "devices": "unknown.png",
-    "os": "UNK.png",
-    "searchEngines": "xx.png",
-    "socials": "xx.png"
-}
-
-ignore_that_icon_isnt_square = [
-    "dist/searchEngines/www.x-recherche.com.png",
-    "dist/plugins/gears.png",
-    "dist/brand/Landvo.png"
-]
-# @formatter:off
-less_important_device_detector_icons = ['os|BMP', 'os|INF', 'os|MCD', 'os|MLD', 'os|MTK', 'os|RZD', 'os|SYS', 'os|S40', 'os|S60', 'os|SY3', 'os|WTV', 'browsers|AF', 'browsers|CX', 'browsers|CS', 'browsers|DB', 'browsers|DO', 'browsers|EB', 'browsers|LU', 'browsers|OD', 'browsers|SC', 'browsers|SN', 'browsers|SR', 'browsers|VB', 'browsers|WT', 'browsers|XI', 'brand|Ainol', 'brand|Airness', 'brand|Airties', 'brand|Allview', 'brand|Altech_UEC', 'brand|Amoi', 'brand|Arnova', 'brand|ARRIS', 'brand|Axxion', 'brand|Barnes_&_Noble', 'brand|BenQ-Siemens', 'brand|Bird', 'brand|Blackview', 'brand|Blu', 'brand|Bmobile', 'brand|Boway', 'brand|Bravis', 'brand|Brondi', 'brand|Bush', 'brand|Capitel', 'brand|Captiva', 'brand|Carrefour', 'brand|Casio', 'brand|Changhong', 'brand|China_Mobile', 'brand|Coby_Kyros', 'brand|Cowon', 'brand|Cube', 'brand|CUBOT', 'brand|Datang', 'brand|Dbtel', 'brand|Desay', 'brand|Dicam', 'brand|DNS', 'brand|Doogee', 'brand|Doov', 'brand|Dopod', 'brand|Dune_HD', 'brand|E-Boda', 'brand|EBEST', 'brand|ECS', 'brand|Elephone', 'brand|Energy_Sistem', 'brand|Ericy', 'brand|Eton', 'brand|Explay', 'brand|Ezio', 'brand|Ezze', 'brand|Fairphone', 'brand|Foxconn', 'brand|Garmin-Asus', 'brand|Gateway', 'brand|GOCLEVER', 'brand|Goly', 'brand|Grape', 'brand|Hasee', 'brand|Hi-Level', 'brand|Hisense', 'brand|Homtom', 'brand|Hosin', 'brand|i-Joy', 'brand|i-mate', 'brand|iBall', 'brand|iKoMo', 'brand|iNew', 'brand|Infinix', 'brand|Inkti', 'brand|Innostream', 'brand|Intex', 'brand|iOcean', 'brand|iTel', 'brand|Jiayu', 'brand|K-Touch', 'brand|Kiano', 'brand|Kingsun', 'brand|Komu', 'brand|Konka', 'brand|Koobee', 'brand|KOPO', 'brand|Koridy', 'brand|KT-Tech', 'brand|Kumai', 'brand|LCT', 'brand|LeEco', 'brand|Lemhoov', 'brand|Lenco', 'brand|Lexand', 'brand|Lexibook', 'brand|Lingwin', 'brand|Logicom', 'brand|M.T.T.', 'brand|Majestic', 'brand|Mecer', 'brand|Mediacom', 'brand|MEEG', 'brand|Memup', 'brand|MEU', 'brand|Miray', 'brand|MIXC', 'brand|MLLED', 'brand|Mobistel', 'brand|Modecom', 'brand|Mofut', 'brand|Mpman', 'brand|Netgear', 'brand|Newgen', 'brand|NextBook', 'brand|Noain', 'brand|Nomi', 'brand|Nous', 'brand|Opsson', 'brand|Ouki', 'brand|OUYA', 'brand|Overmax', 'brand|Oysters', 'brand|Pentagram', 'brand|phoneOne', 'brand|Pioneer', 'brand|Ployer', 'brand|Point_of_View', 'brand|Pomp', 'brand|Positivo', 'brand|PPTV', 'brand|Prestigio', 'brand|Primepad', 'brand|ProScan', 'brand|PULID', 'brand|Qilive', 'brand|Qtek', 'brand|Ramos', 'brand|RCA_Tablets', 'brand|Readboy', 'brand|Rikomagic', 'brand|Roku', 'brand|Rover', 'brand|Sanei', 'brand|Sendo', 'brand|Senseit', 'brand|Skyworth', 'brand|Smartisan', 'brand|Star', 'brand|Stonex', 'brand|Storex', 'brand|Sumvision', 'brand|SunVan', 'brand|SuperSonic', 'brand|Supra', 'brand|Symphony', 'brand|TB_Touch', 'brand|Telenor', 'brand|Tesco', 'brand|ThL', 'brand|TIANYU', 'brand|Top_House',  'brand|Toplux', 'brand|Trevi', 'brand|Turbo-X', 'brand|TVC', 'brand|Uniscope', 'brand|Unknown', 'brand|Unowhy', 'brand|UTStarcom', 'brand|Vastking', 'brand|Vinsoc', 'brand|Vitelcom', 'brand|Vizio', 'brand|VK_Mobile', 'brand|Voto', 'brand|Walton', 'brand|Web_TV', 'brand|WellcoM', 'brand|Wexler', 'brand|Wonu', 'brand|Xolo', 'brand|Ytone', 'brand|Yusun', 'brand|Zeemi', 'brand|Zuum']
-# @formatter:on
-
 build_script_regex = re.compile(r"rm [-rf]+ plugins/Morpheus/icons/(.*)")
 
 min_image_size = 48
@@ -82,7 +54,7 @@ def image_exists(pathslug):
     return False
 
 
-def test_if_all_icons_are_converted():
+def test_if_all_icons_are_converted(ignored_source_files):
     global error
     for filetype in ["svg", "png", "gif", "jpg", "ico"]:
         for file in glob("src/**/*.{}".format(filetype)):
@@ -119,7 +91,7 @@ def test_if_all_symlinks_are_valid():
             error = True
 
 
-def test_if_placeholder_icon_exist():
+def test_if_placeholder_icon_exist(placeholder_icon_filenames):
     global error
     for folder, filename in placeholder_icon_filenames.items():
         file = "src/{folder}/{filename}".format(folder=folder, filename=filename)
@@ -149,7 +121,7 @@ def test_if_icons_are_large_enough():
                 ) + "Maybe try to find an PNG or SVG from another source.")
 
 
-def test_if_dist_icons_are_square():
+def test_if_dist_icons_are_square(ignore_that_icon_isnt_square):
     global error
     for file in glob("dist/**/*.png"):
         if "flags" not in file:
@@ -220,7 +192,7 @@ def test_if_all_search_and_social_sites_have_an_icon():
     look_for_search_and_social_icon(load_yaml(socialsEnginesFile), "socials", "src/socials/")
 
 
-def test_if_there_are_icons_for_all_device_detector_categories():
+def test_if_there_are_icons_for_all_device_detector_categories(less_important_device_detector_icons):
     global error
     process = Popen(["php", "devicedetector.php"], stdout=PIPE)
     (output, err) = process.communicate()
@@ -250,24 +222,26 @@ def test_if_there_are_icons_for_all_device_detector_categories():
 if __name__ == "__main__":
     error = False
 
+    ignore = load_yaml("tests-ignore.yml")
+
     if "TRAVIS_PULL_REQUEST" not in os.environ or not os.environ["TRAVIS_PULL_REQUEST"]:
-        test_if_all_icons_are_converted()
+        test_if_all_icons_are_converted(ignore["ignored_source_files"])
 
     test_if_source_for_images()
     test_if_all_symlinks_are_valid()
-    test_if_placeholder_icon_exist()
-    test_if_dist_icons_are_square()
+    test_if_placeholder_icon_exist(ignore["placeholder_icon_filenames"])
+    test_if_dist_icons_are_square(ignore["ignore_that_icon_isnt_square"])
     if "TRAVIS" in os.environ and os.environ["TRAVIS"]:  # collapse on travis
         print("travis_fold:start:improvable_icons")
         print("improvable icons: (click to expand)")
-        test_if_there_are_icons_for_all_device_detector_categories()
+        test_if_there_are_icons_for_all_device_detector_categories(ignore["less_important_device_detector_icons"])
         test_if_icons_are_indicated_to_be_improvable()
         test_if_icons_are_large_enough()
         print("travis_fold:end:improvable_icons")
         test_if_all_search_and_social_sites_have_an_icon()
         test_if_build_script_is_deleting_all_unneeded_files()
     else:
-        test_if_there_are_icons_for_all_device_detector_categories()
+        test_if_there_are_icons_for_all_device_detector_categories(ignore["less_important_device_detector_icons"])
         test_if_icons_are_indicated_to_be_improvable()
         test_if_icons_are_large_enough()
         test_if_all_search_and_social_sites_have_an_icon()
