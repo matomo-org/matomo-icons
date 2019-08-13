@@ -107,6 +107,7 @@ less_important_device_detector_icons:
   - Innostream
   - Intex
   - iOcean
+  - Irbis
   - iTel
   - Jiayu
   - K-Touch
@@ -184,7 +185,6 @@ less_important_device_detector_icons:
   - Qilive
   - Qtek
   - R-TV
-  - Irbis
   - Ramos
   - RCA_Tablets
   - Readboy
@@ -252,8 +252,9 @@ less_important_device_detector_icons:
   - Yu
   - Yusun
   - Zeemi
-  - Zuum
   - Zenek
+  - Zuum
+  - ZYQ
   browsers:
   - AF
   - CS
