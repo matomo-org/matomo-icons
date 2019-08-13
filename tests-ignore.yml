@@ -13,9 +13,61 @@ ignored_source_files:
 less_important_device_detector_icons:
   brand:
   - Ainol
+  - altron
+  - Ark
+  - ANS
+  - Assistant
+  - AVH
+  - Black Fox
+  - bogo
+  - CAGI
+  - Concord
+  - Crescent
+  - Datsun
+  - PCBOX
+  - Telego
+  - Pixus
+  - Polytron
+  - Q-Touch
+  - Sky
+  - R-TV
+  - Santin BiTBiZ
+  - Shuttle
+  - Sigma
+  - Digiland
+  - Vertex
+  - E-tel
+  - Starway
+  - STF Mobile
+  - SWISSMOBILITY
+  - Arian Space
+  - Unimax
   - Airness
   - Airties
   - Allview
+  - Vulcan
+  - Weimei
+  - Wink
+  - XYQ
+  - Woo
+  - Xion
+  - X-View
+  - Elenberg
+  - Evolio
+  - FinePower
+  - G-TiDE
+  - Ghia
+  - Lumus
+  - Maze
+  - Mecool
+  - MegaFon
+  - MTN
+  - Navon
+  - NeuImage
+  - NEXBOX
+  - O+
+  - Lark
+  - Ledstar
   - Altech_UEC
   - Amoi
   - Arnova
