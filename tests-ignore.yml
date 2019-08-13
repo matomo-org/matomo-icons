@@ -2,6 +2,7 @@ ignore_that_icon_isnt_square:
 - dist/searchEngines/www.x-recherche.com.png
 - dist/plugins/gears.png
 - dist/brand/Landvo.png
+- dist/brand/AMGOO.png
 ignored_source_files:
 - src/flags/un.svg
 - src/flags/gb-wls.svg
@@ -13,78 +14,35 @@ ignored_source_files:
 less_important_device_detector_icons:
   brand:
   - Ainol
-  - altron
-  - Ark
-  - ANS
-  - Assistant
-  - AVH
-  - Black Fox
-  - bogo
-  - CAGI
-  - Concord
-  - Crescent
-  - Datsun
-  - PCBOX
-  - Telego
-  - Pixus
-  - Polytron
-  - Q-Touch
-  - Sky
-  - R-TV
-  - Santin BiTBiZ
-  - Shuttle
-  - Sigma
-  - Digiland
-  - Vertex
-  - E-tel
-  - Starway
-  - STF Mobile
-  - SWISSMOBILITY
-  - Arian Space
-  - Unimax
   - Airness
   - Airties
   - Allview
-  - Vulcan
-  - Weimei
-  - Wink
-  - XYQ
-  - Woo
-  - Xion
-  - X-View
-  - Elenberg
-  - Evolio
-  - FinePower
-  - G-TiDE
-  - Ghia
-  - Lumus
-  - Maze
-  - Mecool
-  - MegaFon
-  - MTN
-  - Navon
-  - NeuImage
-  - NEXBOX
-  - O+
-  - Lark
-  - Ledstar
   - Altech_UEC
+  - altron
   - Amoi
+  - ANS
+  - Arian Space
+  - Ark
   - Arnova
   - ARRIS
   - Ask
+  - Assistant
+  - AVH
   - Axxion
   - Barnes_&_Noble
   - BenQ-Siemens
   - Bird
+  - Black Fox
   - Blackview
   - Blu
   - Bluegood
   - Bmobile
+  - bogo
   - Boway
   - Bravis
   - Brondi
   - Bush
+  - CAGI
   - Capitel
   - Captiva
   - Carrefour
@@ -92,40 +50,51 @@ less_important_device_detector_icons:
   - Changhong
   - China_Mobile
   - Coby_Kyros
+  - Concord
   - Cowon
+  - Crescent
   - Cube
   - CUBOT
   - Datang
+  - Datsun
   - Dbtel
   - Desay
   - Dicam
+  - Digiland
   - DNS
   - Doogee
   - Doov
   - Dopod
   - Dune_HD
   - E-Boda
+  - E-tel
   - EBEST
   - ECS
+  - Elenberg
   - Elephone
   - Energy_Sistem
   - Ericy
   - Eton
+  - Evolio
   - Explay
   - Ezio
   - Ezze
   - Fairphone
+  - FinePower
   - Forstar
   - Foxconn
+  - G-TiDE
   - Garmin-Asus
   - Gateway
   - Geotel
+  - Ghia
   - GOCLEVER
   - Goly
   - Grape
   - Hasee
   - Hi-Level
   - Hisense
+  - Hoffmann
   - Homtom
   - Hosin
   - i-Joy
@@ -151,7 +120,9 @@ less_important_device_detector_icons:
   - KRONO
   - KT-Tech
   - Kumai
+  - Lark
   - LCT
+  - Ledstar
   - LeEco
   - Lemhoov
   - Lenco
@@ -160,11 +131,15 @@ less_important_device_detector_icons:
   - Lexibook
   - Lingwin
   - Logicom
+  - Lumus
   - M.T.T.
   - Majestic
+  - Maze
   - Mecer
+  - Mecool
   - Mediacom
   - MEEG
+  - MegaFon
   - Memup
   - MEU
   - Miray
@@ -174,22 +149,30 @@ less_important_device_detector_icons:
   - Modecom
   - Mofut
   - Mpman
+  - MTN
+  - Navon
   - Netgear
+  - NeuImage
   - Newgen
+  - NEXBOX
   - NextBook
   - Noain
   - Nomi
   - Nous
+  - O+
   - Opsson
   - Ouki
   - OUYA
   - Overmax
   - Oysters
+  - PCBOX
   - Pentagram
   - phoneOne
   - Pioneer
+  - Pixus
   - Ployer
   - Point_of_View
+  - Polytron
   - Pomp
   - Positivo
   - PPTV
@@ -197,8 +180,10 @@ less_important_device_detector_icons:
   - Primepad
   - ProScan
   - PULID
+  - Q-Touch
   - Qilive
   - Qtek
+  - R-TV
   - Ramos
   - RCA_Tablets
   - Readboy
@@ -206,19 +191,27 @@ less_important_device_detector_icons:
   - Roku
   - Rover
   - Sanei
+  - Santin BiTBiZ
   - Sendo
   - Senseit
+  - Shuttle
+  - Sigma
+  - Sky
   - Skyworth
   - Smartisan
   - Star
+  - Starway
+  - STF Mobile
   - Stonex
   - Storex
   - Sumvision
   - SunVan
   - SuperSonic
   - Supra
+  - SWISSMOBILITY
   - Symphony
   - TB_Touch
+  - Telego
   - Telenor
   - Tesco
   - ThL
@@ -228,22 +221,31 @@ less_important_device_detector_icons:
   - Trevi
   - Turbo-X
   - TVC
+  - Unimax
   - Uniscope
   - Unknown
   - Unowhy
   - UTStarcom
   - Vastking
+  - Vertex
   - Vinsoc
   - Vitelcom
   - Vizio
   - VK_Mobile
   - Voto
+  - Vulcan
   - Walton
   - Web_TV
+  - Weimei
   - WellcoM
   - Wexler
+  - Wink
   - Wonu
+  - Woo
+  - X-View
+  - Xion
   - Xolo
+  - XYQ
   - 'Yes'
   - Ytone
   - Yu
