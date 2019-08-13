@@ -1,6 +1,6 @@
 {
   "dependencies": {
     "browser-logos": "alrra/browser-logos",
-    "flag-icon-css": "^3.3.0"
+    "flag-icon-css": "lipis/flag-icon-css"
   }
 }
