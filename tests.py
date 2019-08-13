@@ -212,6 +212,7 @@ def test_if_there_are_icons_for_all_device_detector_categories(less_important_de
                 warning = "icon for {icon} missing (should be at src/{type}/{slug}.{{png|svg}})".format(
                     type=icontype, icon=category[code], slug=slug
                 )
+                print(slug)
                 if slug in less_important_device_detector_icons[icontype]:
                     print_warning(warning)
                 else:

@@ -21,7 +21,7 @@ less_important_device_detector_icons:
   - altron
   - Amoi
   - ANS
-  - Arian Space
+  - Arian_Space
   - Ark
   - Arnova
   - ARRIS
@@ -32,7 +32,7 @@ less_important_device_detector_icons:
   - Barnes_&_Noble
   - BenQ-Siemens
   - Bird
-  - Black Fox
+  - Black_Fox
   - Blackview
   - Blu
   - Bluegood
@@ -184,6 +184,7 @@ less_important_device_detector_icons:
   - Qilive
   - Qtek
   - R-TV
+  - Irbis
   - Ramos
   - RCA_Tablets
   - Readboy
@@ -191,7 +192,7 @@ less_important_device_detector_icons:
   - Roku
   - Rover
   - Sanei
-  - Santin BiTBiZ
+  - Santin_BiTBiZ
   - Sendo
   - Senseit
   - Shuttle
@@ -201,7 +202,7 @@ less_important_device_detector_icons:
   - Smartisan
   - Star
   - Starway
-  - STF Mobile
+  - STF_Mobile
   - Stonex
   - Storex
   - Sumvision
@@ -252,6 +253,7 @@ less_important_device_detector_icons:
   - Yusun
   - Zeemi
   - Zuum
+  - Zenek
   browsers:
   - AF
   - CS
