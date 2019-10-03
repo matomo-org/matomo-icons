@@ -102,7 +102,7 @@ function handleMultisizeIco () {
         then
             mkdir "tmp"
         fi
-        largestIcon=$(python analyseIco.py "$1")
+        largestIcon=$(python3 analyseIco.py "$1")
         newIcon="tmp/${code}.ico"
         convert "${i}"\["$largestIcon"\] "$newIcon"
         echo "$newIcon" # "return"
