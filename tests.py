@@ -197,7 +197,7 @@ def test_if_there_are_icons_for_all_device_detector_categories(less_important_de
     process = Popen(["php", "devicedetector.php"], stdout=PIPE)
     (output, err) = process.communicate()
     process.wait()
-    regex = re.compile(r"[^a-z0-9_\-äöü]+",re.IGNORECASE)
+    regex = re.compile(r"[^a-z0-9_\-]+",re.IGNORECASE)
     categories = json.loads(output)
     for icontype, category in categories.items():
         for code in category:
