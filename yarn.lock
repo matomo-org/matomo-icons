@@ -3,12 +3,12 @@
 
 
 browser-logos@alrra/browser-logos:
-  version "59.0.1"
-  resolved "https://codeload.github.com/alrra/browser-logos/tar.gz/a4c90f0145777671dbeab6aab29fa7f8817abc31"
+  version "62.0.13"
+  resolved "https://codeload.github.com/alrra/browser-logos/tar.gz/64de676cf1e2c6b3027e5e46bc5a5cfc08afb212"
 
 flag-icon-css@lipis/flag-icon-css:
-  version "3.4.3"
-  resolved "https://codeload.github.com/lipis/flag-icon-css/tar.gz/95baf495fee1ae3575915d1f689d8f7bf35ffb1c"
+  version "3.4.5"
+  resolved "https://codeload.github.com/lipis/flag-icon-css/tar.gz/fc893a8daeea03a30e27812eefa1fc420fa52010"
   dependencies:
     opencollective-postinstall "2.0.2"
 
