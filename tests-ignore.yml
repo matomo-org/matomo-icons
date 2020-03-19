@@ -262,13 +262,23 @@ less_important_device_detector_icons:
   - DB
   - DO
   - EB
+  - EU
+  - FX
+  - KB
   - LF
+  - LO
   - LU
   - OD
+  - OY
+  - S1
   - SC
   - SN
   - SR
+  - SU
+  - TA
+  - UB
   - VB
+  - VV
   - WT
   - XI
   os:

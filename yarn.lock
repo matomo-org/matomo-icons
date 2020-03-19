@@ -3,16 +3,9 @@
 
 
 browser-logos@alrra/browser-logos:
-  version "62.0.13"
-  resolved "https://codeload.github.com/alrra/browser-logos/tar.gz/64de676cf1e2c6b3027e5e46bc5a5cfc08afb212"
+  version "62.2.25"
+  resolved "https://codeload.github.com/alrra/browser-logos/tar.gz/6d6415833bb9331d998dde1ac88a34f316065fb1"
 
 flag-icon-css@lipis/flag-icon-css:
-  version "3.4.5"
-  resolved "https://codeload.github.com/lipis/flag-icon-css/tar.gz/fc893a8daeea03a30e27812eefa1fc420fa52010"
-  dependencies:
-    opencollective-postinstall "2.0.2"
-
-opencollective-postinstall@2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/opencollective-postinstall/-/opencollective-postinstall-2.0.2.tgz#5657f1bede69b6e33a45939b061eb53d3c6c3a89"
-  integrity sha512-pVOEP16TrAO2/fjej1IdOyupJY8KDUM1CvsaScRbw6oddvpQoOfGk4ywha0HKKVAD6RkW4x6Q+tNBwhf3Bgpuw==
+  version "3.4.6"
+  resolved "https://codeload.github.com/lipis/flag-icon-css/tar.gz/7382afe01103b2020fe9f63298e677b66a81997e"

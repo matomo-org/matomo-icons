@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="29.07" height="40" viewBox="0 0 29.07 40">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.587" cy="0.753" r="0.762" gradientTransform="translate(-0.221 0.004) scale(1.376 0.994)" gradientUnits="objectBoundingBox">
+      <stop offset="0.05" stop-color="#fbae17"/>
+      <stop offset="0.174" stop-color="#f6921e"/>
+      <stop offset="0.4" stop-color="#f16522"/>
+      <stop offset="0.63" stop-color="#d71921"/>
+      <stop offset="0.797" stop-color="#c3161c"/>
+      <stop offset="0.956" stop-color="#b01117"/>
+    </radialGradient>
+  </defs>
+  <g id="hola_flame" transform="translate(0 0)">
+    <g id="Group_348" data-name="Group 348">
+      <path id="Body_1_" d="M29.048,25.524c.19-2.857-.857-7.524-1.619-10-.762-2.381.857-5.333.857-5.333s-.762,0-2.667,1.714a5.552,5.552,0,0,0-1.9,3.9c-2.19-5.143-6.667-8.476-8.381-10.762C13.714,2.952,14.857,0,14.857,0,11.524,1.429,9.81,5.048,9.238,9.333A7.838,7.838,0,0,1,6,15.238c-.476-4-4.952-5.048-4.952-5.048.952.286,2.571,4.952.857,8.286A15.953,15.953,0,0,0,0,25.524C0,33.524,5.048,40,14.476,40A14.141,14.141,0,0,0,29.048,25.524Z" transform="translate(0 0)" fill="url(#radial-gradient)"/>
+      <g id="Mouth_1_" transform="translate(3.714 26.476)">
+        <path id="Mouth_2_" d="M24.09,27.8a9.334,9.334,0,0,1-18.667,0H3.9a10.858,10.858,0,0,0,21.714,0Z" transform="translate(-3.9 -27.8)" fill="#231f20"/>
+      </g>
+      <g id="Eyes_1_" transform="translate(7.429 20.762)">
+        <g id="Group_346" data-name="Group 346" transform="translate(10.286)">
+          <ellipse id="Ellipse_68" data-name="Ellipse 68" cx="2" cy="2.857" rx="2" ry="2.857" fill="#231f20"/>
+        </g>
+        <g id="Group_347" data-name="Group 347">
+          <ellipse id="Ellipse_69" data-name="Ellipse 69" cx="2" cy="2.857" rx="2" ry="2.857" fill="#231f20"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
