@@ -16,7 +16,6 @@ less_important_device_detector_icons:
   - Ainol
   - Airness
   - Airties
-  - Allview
   - Altech_UEC
   - altron
   - Amoi
@@ -33,8 +32,6 @@ less_important_device_detector_icons:
   - BenQ-Siemens
   - Bird
   - Black_Fox
-  - Blackview
-  - Blu
   - Bluegood
   - Bmobile
   - bogo
@@ -54,7 +51,6 @@ less_important_device_detector_icons:
   - Cowon
   - Crescent
   - Cube
-  - CUBOT
   - Datang
   - Datsun
   - Dbtel
@@ -62,11 +58,9 @@ less_important_device_detector_icons:
   - Dicam
   - Digiland
   - DNS
-  - Doogee
   - Doov
   - Dopod
   - Dune_HD
-  - E-Boda
   - E-tel
   - EBEST
   - ECS
@@ -75,11 +69,9 @@ less_important_device_detector_icons:
   - Energy_Sistem
   - Ericy
   - Eton
-  - Evolio
   - Explay
   - Ezio
   - Ezze
-  - Fairphone
   - FinePower
   - Forstar
   - Foxconn
@@ -87,13 +79,10 @@ less_important_device_detector_icons:
   - Garmin-Asus
   - Gateway
   - Geotel
-  - Ghia
-  - GOCLEVER
   - Goly
   - Grape
   - Hasee
   - Hi-Level
-  - Hisense
   - Hoffmann
   - Homtom
   - Hosin
@@ -127,7 +116,6 @@ less_important_device_detector_icons:
   - LeEco
   - Lemhoov
   - Lenco
-  - Leotec
   - Lexand
   - Lexibook
   - Lingwin
@@ -160,7 +148,6 @@ less_important_device_detector_icons:
   - Noain
   - Nomi
   - Nous
-  - O_
   - Opsson
   - Ouki
   - OUYA
@@ -253,7 +240,6 @@ less_important_device_detector_icons:
   - Yusun
   - Zeemi
   - Zenek
-  - Zuum
   - ZYQ
   browsers:
   - AF
