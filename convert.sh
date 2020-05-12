@@ -70,9 +70,9 @@ function resizeSvg () {
     outputfile=$2
     if echo "$outputfile" | grep "flags"
     then
-        inkscape -f "$inputfile" -h "$size" -e "$outputfile"
+        inkscape -h "$size" "$inputfile" -o "$outputfile"
     else
-        inkscape -f "$inputfile" -h 1024 -e "$outputfile"
+        inkscape -h 1024 "$inputfile" -o "$outputfile"
         mogrify \
             -background none \
             -bordercolor transparent -border 1x1 \

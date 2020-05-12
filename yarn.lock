@@ -4,8 +4,8 @@
 
 browser-logos@alrra/browser-logos:
   version "62.2.25"
-  resolved "https://codeload.github.com/alrra/browser-logos/tar.gz/6d6415833bb9331d998dde1ac88a34f316065fb1"
+  resolved "https://codeload.github.com/alrra/browser-logos/tar.gz/59e0708d2fe5322860a933103ad71543b453a782"
 
 flag-icon-css@lipis/flag-icon-css:
   version "3.4.6"
-  resolved "https://codeload.github.com/lipis/flag-icon-css/tar.gz/7382afe01103b2020fe9f63298e677b66a81997e"
+  resolved "https://codeload.github.com/lipis/flag-icon-css/tar.gz/55689368e99d7767acda0dafb22e3376e9ebcc32"
