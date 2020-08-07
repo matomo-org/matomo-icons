@@ -243,6 +243,7 @@ less_important_device_detector_icons:
   - ZYQ
   browsers:
   - AF
+  - C0
   - CS
   - CX
   - DB
@@ -251,13 +252,12 @@ less_important_device_detector_icons:
   - EU
   - FX
   - KB
-  - C0
-  - MY
-  - TV
   - LF
+  - LL
   - LO
   - LU
   - MN
+  - MY
   - OD
   - OY
   - S1
@@ -266,11 +266,13 @@ less_important_device_detector_icons:
   - SR
   - SU
   - TA
+  - TV
   - UB
   - VB
   - VV
   - WT
   - XI
+  - ZV
   os:
   - BMP
   - INF
