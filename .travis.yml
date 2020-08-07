@@ -13,5 +13,5 @@ script:
  - 'shellcheck *.sh'
  - python tests.py
 
-job:
+jobs:
   fast_finish: true
