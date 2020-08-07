@@ -1,10 +1,8 @@
-dist: xenial
+os: linux
+dist: bionic
 language: python
 python:
-  "3.7"
-
-# Use container-based infrastructure for quicker build start-up
-sudo: false
+  "3.8"
 
 before_install:
   - git clone https://github.com/piwik/piwik-package.git tmp/piwik-package
@@ -15,5 +13,5 @@ script:
  - 'shellcheck *.sh'
  - python tests.py
 
-matrix:
+job:
   fast_finish: true
