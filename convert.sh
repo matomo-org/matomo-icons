@@ -21,7 +21,7 @@ function resizeLargeIcon () {
     outputfile=$2
     convert \
         "$inputfile" \
-        -bordercolor white -border 1x1 \
+        -bordercolor transparent -border 1x1 \
         -fill transparent \
         -fuzz 1% \
         -draw "color 0,0 floodfill" \
