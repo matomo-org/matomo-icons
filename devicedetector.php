@@ -2,7 +2,7 @@
 
 require_once "vendor/autoload.php";
 
-$brands = \DeviceDetector\Parser\Device\DeviceParserAbstract::$deviceBrands;
+$brands = \DeviceDetector\Parser\Device\AbstractDeviceParser::$deviceBrands;
 natcasesort($brands);
 
 $data = [
