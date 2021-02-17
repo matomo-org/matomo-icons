@@ -127,7 +127,7 @@ function fixFlags () {
     rm ${targetDir}/gb-*
     rm ${targetDir}/un.png
     rm ${targetDir}/xk.png
-    rm ${targetDir}/es-ca.png
+    rm ${targetDir}/es-ct.png
     rm ${targetDir}/es-ga.png
 }
 
