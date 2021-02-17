@@ -1,13 +1,13 @@
 # Matomo-Icons
 
-[![Build Status](https://travis-ci.org/matomo-org/matomo-icons.svg?branch=master)](https://travis-ci.org/matomo-org/matomo-icons)
+[![Build Status](https://api.travis-ci.com/matomo-org/matomo-icons.svg?branch=master)](https://travis-ci.com/matomo-org/matomo-icons)
 
 This reposistory provides the source files for the icons in [matomo](https://github.com/matomo-org/matomo) and the scripts used to resize them to a common size.
 
 ## Contributing
 
 An icon is missing or you have a better one? Create a [new issue](https://github.com/matomo-org/matomo-icons/issues/new) or, even better, open a pull request.
-You can find a up-to-date list of all improvable icons on [Travis](https://travis-ci.org/matomo-org/matomo-icons).
+You can find a up-to-date list of all improvable icons on [Travis](https://travis-ci.com/matomo-org/matomo-icons).
 
 All source files except those in `devices`, `flags`, `searchEngines` and `socials` need to have a second file called `iconname.ext.source` that mentions where the image is from.
 
