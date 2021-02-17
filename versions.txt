@@ -1,8 +1,8 @@
-Version: ImageMagick 6.9.11-24 Q16 x86_64 20200718 https://imagemagick.org
-Copyright: © 1999-2020 ImageMagick Studio LLC
+Version: ImageMagick 6.9.11-60 Q16 x86_64 2021-01-25 https://imagemagick.org
+Copyright: (C) 1999-2021 ImageMagick Studio LLC
 License: https://imagemagick.org/script/license.php
 Features: Cipher DPC Modules OpenMP(4.5) 
 Delegates (built-in): bzlib djvu fftw fontconfig freetype heic jbig jng jp2 jpeg lcms lqr ltdl lzma openexr pangocairo png tiff webp wmf x xml zlib
 pngquant version:
-2.12.0 (January 2018)
-Inkscape 1.0 (4035a4fb49, 2020-05-01)
+2.12.2 (July 2019)
+Inkscape 1.0.2 (e86c870879, 2021-01-15)
