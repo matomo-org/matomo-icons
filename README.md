@@ -16,13 +16,13 @@ All source files except those in `devices`, `flags`, `searchEngines` and `social
 | icon type | example | possible names |
 | --------- | ------- | ----------- |
 |brand|*Apple*| *Device detection* in Matomo Administration page|
-|browsers|*FF*|https://github.com/matomo-org/device-detector/blob/master/Parser/Client/Browser.php#L29 |
+|browsers|*FF*|https://github.com/matomo-org/device-detector/blob/master/Parser/Client/Browser.php#L37 |
 |devices|*smartphone*| *Device detection* in Matomo Administration page|
 |flags|*at*| all except *un* and *gb-** |
-|os|*WIN*|https://github.com/matomo-org/device-detector/blob/master/Parser/OperatingSystem.php#L30 |
-|plugins|*flash*|https://github.com/matomo-org/matomo/blob/3.x-dev/plugins/DevicePlugins/Visitor.php#L26 |
+|os|*WIN*|https://github.com/matomo-org/device-detector/blob/master/Parser/OperatingSystem.php#L38 |
+|plugins|*flash*|files in [plugins/DevicePlugins/Columns/](https://github.com/matomo-org/matomo/tree/4.x-dev/plugins/DevicePlugins/Columns) |
 |searchEngines|*google.com*|https://github.com/matomo-org/searchengine-and-social-list/blob/master/SearchEngines.yml |
-|SEO|*bing.com*|https://github.com/matomo-org/matomo/tree/3.x-dev/plugins/SEO |
+|SEO|*bing.com*|https://github.com/matomo-org/matomo/tree/4.x-dev/plugins/SEO |
 |socials|*facebook.com*|https://github.com/matomo-org/searchengine-and-social-list/blob/master/Socials.yml |
 
 ### File Formats
