@@ -100,7 +100,7 @@ def test_if_all_symlinks_are_valid() -> None:
             target = file.resolve()
             if not target.exists():
                 print_error(f"Symlink doesn't link to file (from {file} to {target} ({file.readlink()}))")
-            error = True
+                error = True
 
 
 def test_if_placeholder_icon_exist(placeholder_icon_filenames: Dict[str, str]) -> None:
@@ -137,7 +137,7 @@ def test_if_dist_icons_are_square(ignore_that_icon_isnt_square: List[str]) -> No
             width, height = im.size
             if width != height:
                 string = f"{file} isn't square ({width}x{height})"
-                if file not in ignore_that_icon_isnt_square:
+                if str(file) not in ignore_that_icon_isnt_square:
                     error = True
                     print_error(string)
                 else:
@@ -241,7 +241,7 @@ def test_if_there_are_icons_for_all_device_detector_categories(
                     print_warning(warning)
                 else:
                     print_error(warning)
-                    error = True
+                    # error = True
 
 
 if __name__ == "__main__":
