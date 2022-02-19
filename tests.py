@@ -251,7 +251,6 @@ if __name__ == "__main__":
 
     if "TRAVIS_PULL_REQUEST" not in os.environ or not os.environ["TRAVIS_PULL_REQUEST"]:
         test_if_all_icons_are_converted(ignore["ignored_source_files"])
-    exit()
 
     test_if_source_for_images()
     test_if_all_symlinks_are_valid()
