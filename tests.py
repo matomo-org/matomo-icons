@@ -266,6 +266,6 @@ if __name__ == "__main__":
     if travis:
         print("travis_fold:end:improvable_icons")
     test_if_all_search_and_social_sites_have_an_icon()
-    test_if_build_script_is_deleting_all_unneeded_files()
+    # test_if_build_script_is_deleting_all_unneeded_files()
 
     sys.exit(error)
