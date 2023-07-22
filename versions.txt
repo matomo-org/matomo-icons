@@ -4,5 +4,5 @@ License: https://imagemagick.org/script/license.php
 Features: Cipher DPC Modules OpenMP(4.5) 
 Delegates (built-in): bzlib djvu fftw fontconfig freetype heic jbig jng jp2 jpeg lcms lqr ltdl lzma openexr pangocairo png tiff webp wmf x xml zlib
 pngquant version:
-2.12.2 (July 2019)
-Inkscape 1.1.2 (0a00cf5339, 2022-02-04)
+2.17.0 (September 2021)
+Inkscape 1.2.2 (b0a8486541, 2022-12-01)
