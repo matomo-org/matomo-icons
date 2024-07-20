@@ -131,6 +131,12 @@ function fixFlags () {
     rm ${targetDir}/es-ga.png
     rm ${targetDir}/es-pv.png
     rm ${targetDir}/cefta.png
+    rm ${targetDir}/arab.png
+    rm ${targetDir}/eac.png
+    rm ${targetDir}/pc.png
+    rm ${targetDir}/sh-ac.png
+    rm ${targetDir}/sh-hl.png
+    rm ${targetDir}/sh-ta.png
 }
 
 function loopThrough () {
