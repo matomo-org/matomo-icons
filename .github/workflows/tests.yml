@@ -1,0 +1,47 @@
+name: Tests
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  push:
+    branches:
+      - 'master'
+
+permissions:
+  actions: read
+  checks: read
+  contents: read
+  deployments: none
+  issues: read
+  packages: none
+  pull-requests: read
+  repository-projects: none
+  security-events: none
+  statuses: none
+
+jobs:
+  build:
+    runs-on: 'ubuntu-latest'
+    name: Tests
+    steps:
+      - uses: actions/checkout@v4
+      - name: Checkout tools repo
+        uses: actions/checkout@v4
+        with:
+          repository: piwik/piwik-package
+          path: tmp/piwik-package
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.9
+      - name: Install Dependencies
+        run: |
+          composer install
+          yarn install
+          pip install -r requirements.txt
+        shell: bash
+      - name: Run Tests
+        run: |
+          shellcheck *.sh
+          python tests.py
+        shell: bash

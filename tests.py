@@ -249,22 +249,19 @@ if __name__ == "__main__":
 
     ignore = load_yaml(Path("tests-ignore.yml"))
 
-    if "TRAVIS_PULL_REQUEST" not in os.environ or not os.environ["TRAVIS_PULL_REQUEST"]:
-        test_if_all_icons_are_converted(ignore["ignored_source_files"])
-
+    test_if_all_icons_are_converted(ignore["ignored_source_files"])
     test_if_source_for_images()
     test_if_all_symlinks_are_valid()
     test_if_placeholder_icon_exist(ignore["placeholder_icon_filenames"])
     test_if_dist_icons_are_square(ignore["ignore_that_icon_isnt_square"])
-    travis = "TRAVIS" in os.environ and os.environ["TRAVIS"]  # collapse on travis
-    if travis:
-        print("travis_fold:start:improvable_icons")
-        print("improvable icons: (click to expand)")
+    is_ci = "CI" in os.environ and os.environ["CI"]  # collapse on CI
+    if is_ci:
+        print("::group::improvable icons: (click to expand)")
     test_if_there_are_icons_for_all_device_detector_categories(ignore["less_important_device_detector_icons"])
     test_if_icons_are_indicated_to_be_improvable()
     test_if_icons_are_large_enough()
-    if travis:
-        print("travis_fold:end:improvable_icons")
+    if is_ci:
+        print("::endgroup::")
     test_if_all_search_and_social_sites_have_an_icon()
     # test_if_build_script_is_deleting_all_unneeded_files()
 
