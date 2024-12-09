@@ -33,7 +33,7 @@ placeholder_icon_hash = "398a623a3b0b10eba6d1884b0ff1713ee12aeafaa8efaf67b60a462
 
 searchEnginesFile = Path("vendor/matomo/searchengine-and-social-list/SearchEngines.yml")
 socialsEnginesFile = Path("vendor/matomo/searchengine-and-social-list/Socials.yml")
-build_script_file = Path("tmp/piwik-package/scripts/build-package.sh")
+build_script_file = Path("tmp/matomo/.github/scripts/clean-build.sh")
 
 src = Path("src/")
 dist: Path = Path("dist/")

@@ -25,11 +25,11 @@ jobs:
     name: Tests
     steps:
       - uses: actions/checkout@v4
-      - name: Checkout tools repo
+      - name: Checkout Matomo
         uses: actions/checkout@v4
         with:
-          repository: piwik/piwik-package
-          path: tmp/piwik-package
+          repository: matomo-org/matomo
+          path: tmp/matomo
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
