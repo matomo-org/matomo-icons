@@ -1,0 +1,141 @@
+name: Convert Images
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+permissions:
+  actions: read
+  checks: read
+  contents: write
+  deployments: none
+  issues: read
+  packages: none
+  pull-requests: write
+  repository-projects: none
+  security-events: none
+  statuses: none
+
+jobs:
+  build:
+    runs-on: 'ubuntu-22.04'
+    name: Convert Images
+    steps:
+      - name: Detect branch for PR
+        id: vars
+        run: |
+          PR="${{ github.event.pull_request.number }}"
+
+          PR_INFO=$( curl \
+                   --request GET \
+                   --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+                   --header 'content-type: application/json' \
+                   --url https://api.github.com/repos/$GITHUB_REPOSITORY/pulls/$PR )
+          REF=$(echo "${PR_INFO}" | jq -r .head.ref)
+          BASE=$(echo "${PR_INFO}" | jq -r .head.repo.full_name)
+          STATE=$(echo "${PR_INFO}" | jq -r .state)
+          BASE_SHA=$(echo "${PR_INFO}" | jq -r .base.sha)
+
+          if [[ $STATE == "closed" ]]
+          then
+            echo "Pull Request already closed."
+            exit 0;
+          fi
+
+          echo "islocalbranch=$(expr $BASE == $GITHUB_REPOSITORY)" >> $GITHUB_OUTPUT
+          echo "branch=$REF" >> $GITHUB_OUTPUT
+          echo "base=$BASE_SHA" >> $GITHUB_OUTPUT
+      - uses: actions/checkout@v4
+        if: steps.vars.outputs.branch != ''
+      - name: Check images changes
+        id: imagecheck
+        run: |
+          git fetch --depth=1 origin ${{ steps.vars.outputs.base }}
+
+          IMAGES_MODIFIED=$(git diff --name-only ${{ steps.vars.outputs.base }} -- src/ .github/workflows/convertimages.yml | wc -l)
+
+          if [[ $IMAGES_MODIFIED == "0" ]]
+          then
+            echo "No images modified"
+            exit 0;
+          fi
+
+          echo "images_modified=1" >> $GITHUB_OUTPUT
+        if: steps.vars.outputs.branch != ''
+      - name: Install Dependencies
+        run: |
+          npm install
+
+          sudo apt-get update
+
+          git clone --recursive https://github.com/kornelski/pngquant.git
+          cd pngquant
+          cargo build --release
+          sudo cp target/release/pngquant /usr/local/bin/
+          cd ..
+          pngquant --version
+
+          sudo add-apt-repository universe
+          sudo add-apt-repository ppa:inkscape.dev/stable
+          sudo apt-get update
+          sudo apt install inkscape
+
+          sudo apt install imagemagick
+        shell: bash
+        if: steps.vars.outputs.branch != '' && steps.imagecheck.outputs.images_modified == '1'
+      - name: Prepare git config
+        run: |
+          cat <<- EOF > $HOME/.netrc
+            machine github.com
+            login innocraft-automation
+            password $CUSTOM_ACCESS_TOKEN
+            machine api.github.com
+            login innocraft-automation
+            password $CUSTOM_ACCESS_TOKEN
+          EOF
+          chmod 600 $HOME/.netrc
+          git config --global user.email "innocraft-automation@users.noreply.github.com"
+          git config --global user.name "innocraft-automation"
+          git remote set-url origin https://x-access-token:${{ secrets.CUSTOM_ACCESS_TOKEN }}@github.com/$GITHUB_REPOSITORY
+          if [[ ${{ steps.vars.outputs.islocalbranch }} ]]
+          then
+            git fetch --depth=1 origin $BRANCH_NAME
+            git checkout $BRANCH_NAME
+          fi
+        env:
+          BRANCH_NAME: ${{ steps.vars.outputs.branch }}
+        if: steps.vars.outputs.branch != '' && steps.imagecheck.outputs.images_modified == '1'
+      - name: Run convert images
+        run: ./convert.sh
+        shell: bash
+        if: steps.vars.outputs.branch != '' && steps.imagecheck.outputs.images_modified == '1'
+      - name: Push changes
+        id: push
+        run: |
+          if [[ $( git diff --numstat dist ) ]]
+          then
+            if [[ ! ${{ steps.vars.outputs.islocalbranch }} ]]
+            then
+              echo "It's only possible to update local branches automatically. Adding a comment instead."
+              echo "failure=1" >> $GITHUB_OUTPUT
+            else
+              cd $GITHUB_WORKSPACE
+              git add dist/ versions.txt
+              git commit -m "Generated image files"
+              git push
+            fi
+          fi
+        if: steps.vars.outputs.branch != '' && steps.imagecheck.outputs.images_modified == '1'
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Image files are not up to date. Please generate them locally and push them to your branch.'
+            })
+        if: steps.push.outputs.failure == '1'
+      - name: Fail if not up to date
+        run: exit 1
+        if: steps.push.outputs.failure == '1'
