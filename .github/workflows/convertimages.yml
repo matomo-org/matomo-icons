@@ -112,6 +112,7 @@ jobs:
       - name: Push changes
         id: push
         run: |
+          git diff
           if [[ $( git diff --numstat dist ) ]]
           then
             if [[ ! ${{ steps.vars.outputs.islocalbranch }} ]]
