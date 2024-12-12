@@ -68,7 +68,7 @@ jobs:
 
           sudo apt-get update
 
-          git clone --recursive https://github.com/kornelski/pngquant.git
+          git clone --recursive --branch 3.0.3 https://github.com/kornelski/pngquant.git
           cd pngquant
           cargo build --release
           sudo cp target/release/pngquant /usr/local/bin/
@@ -78,9 +78,9 @@ jobs:
           sudo add-apt-repository universe
           sudo add-apt-repository ppa:inkscape.dev/stable
           sudo apt-get update
-          sudo apt install inkscape
+          sudo apt-get install inkscape
 
-          sudo apt install imagemagick
+          sudo apt-get install imagemagick
         shell: bash
         if: steps.vars.outputs.branch != '' && steps.imagecheck.outputs.images_modified == '1'
       - name: Prepare git config
