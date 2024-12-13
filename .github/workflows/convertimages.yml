@@ -112,7 +112,8 @@ jobs:
       - name: Push changes
         id: push
         run: |
-          if [[ $( git diff --numstat dist ) ]]
+          git add dist
+          if [[ $( git diff --numstat HEAD dist ) ]]
           then
             if [[ ! ${{ steps.vars.outputs.islocalbranch }} ]]
             then
