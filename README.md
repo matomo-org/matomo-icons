@@ -1,6 +1,6 @@
 # Matomo Icons
 
-[![Build Status](https://api.travis-ci.com/matomo-org/matomo-icons.svg?branch=master)](https://travis-ci.com/matomo-org/matomo-icons)
+[![Tests](https://github.com/matomo-org/matomo-icons/actions/workflows/tests.yml/badge.svg)](https://github.com/matomo-org/matomo-icons/actions/workflows/tests.yml)
 
 This repository provides the source files for the icons in [Matomo](https://github.com/matomo-org/matomo) and the scripts used to convert them into a unified format.
 
