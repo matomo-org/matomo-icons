@@ -5,4 +5,4 @@ Features: Cipher DPC Modules OpenMP(4.5)
 Delegates (built-in): bzlib djvu fftw fontconfig freetype heic jbig jng jp2 jpeg lcms lqr ltdl lzma openexr pangocairo png tiff webp wmf x xml zlib
 pngquant version:
 3.0.3
-Inkscape 1.4 (1:1.4+202410161351+e7c3feb100)
+Inkscape 1.4.2 (1:1.4.2+202505120738+ebf0e940d0)
