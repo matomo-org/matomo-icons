@@ -140,7 +140,7 @@ function fixFlags () {
 }
 
 function loopThrough () {
-    for i in src{/**/,/flags/}*.{svg,png,gif,jpg,ico}; do
+    for i in src{/**/,/flags/}*.{svg,png,gif,jpg,ico,webp}; do
         size=48
         absDirname=$(dirname "$i")
         origFilename=$(basename "$i")
