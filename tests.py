@@ -32,6 +32,7 @@ min_image_size = 48
 placeholder_icon_hash = "398a623a3b0b10eba6d1884b0ff1713ee12aeafaa8efaf67b60a4624f4dce48c"
 
 searchEnginesFile = Path("vendor/matomo/searchengine-and-social-list/SearchEngines.yml")
+aiAssistantsFile = Path("vendor/matomo/searchengine-and-social-list/AIAssistants.yml")
 socialsEnginesFile = Path("vendor/matomo/searchengine-and-social-list/Socials.yml")
 build_script_file = Path("tmp/matomo/.github/scripts/clean-build.sh")
 
@@ -53,7 +54,7 @@ def load_yaml(file: Path):
 
 
 def image_exists(pathslug: Path) -> bool:
-    for filetype in ["svg", "png", "gif", "jpg", "ico"]:
+    for filetype in ["svg", "png", "gif", "jpg", "ico", "webp"]:
         if pathslug.with_suffix(pathslug.suffix + f".{filetype}").exists():
             return True
     return False
@@ -70,7 +71,7 @@ def walk(path: Path) -> Iterator[Path]:
 
 def test_if_all_icons_are_converted(ignored_source_files) -> None:
     global error
-    for filetype in ["svg", "png", "gif", "jpg", "ico"]:
+    for filetype in ["svg", "png", "gif", "jpg", "ico", "webp"]:
         for file in src.glob(f"**/*.{filetype}"):
             distfile = Path("dist/") / Path(*file.parts[1:]).with_suffix(".png")
 
@@ -82,7 +83,7 @@ def test_if_all_icons_are_converted(ignored_source_files) -> None:
 def test_if_source_for_images() -> None:
     global error
     for icontype in ["brand", "browsers", "os", "plugins", "SEO"]:
-        for filetype in ["svg", "png", "gif", "jpg", "ico"]:
+        for filetype in ["svg", "png", "gif", "jpg", "ico", "webp"]:
             for source_file in (src / icontype).glob(f"*.{filetype}"):
                 if (
                         not source_file.is_symlink()
@@ -114,7 +115,7 @@ def test_if_placeholder_icon_exist(placeholder_icon_filenames: Dict[str, str]) -
 
 def test_if_icons_are_large_enough() -> None:
     # ignore searchEngines and socials
-    for filetype in ["png", "gif", "jpg", "ico"]:
+    for filetype in ["png", "gif", "jpg", "ico", "webp"]:
         for source_file in src.glob(f"*/*.{filetype}"):
             im = Image.open(source_file)
             if im.size[0] < min_image_size or im.size[1] < min_image_size:
@@ -203,7 +204,7 @@ def look_for_search_and_social_icon(source, mode, outputdir: Path) -> None:
             print_error(f"icon for {url} is missing")
             error = True
         correct_files.add(url)
-    for filetype in ["svg", "png", "gif", "jpg", "ico"]:
+    for filetype in ["svg", "png", "gif", "jpg", "ico", "webp"]:
         for file in outputdir.glob(f"*.{filetype}"):
             domain = file.stem
             if domain not in correct_files and domain != "xx":
@@ -213,6 +214,7 @@ def look_for_search_and_social_icon(source, mode, outputdir: Path) -> None:
 
 def test_if_all_search_and_social_sites_have_an_icon() -> None:
     look_for_search_and_social_icon(load_yaml(searchEnginesFile), "searchengines", Path("src/searchEngines/"))
+    look_for_search_and_social_icon(load_yaml(aiAssistantsFile), "aiAssistants", Path("src/aiAssistants/"))
     look_for_search_and_social_icon(load_yaml(socialsEnginesFile), "socials", Path("src/socials/"))
 
 
@@ -230,7 +232,7 @@ def test_if_there_are_icons_for_all_device_detector_categories(
             else:
                 slug = code
             found = False
-            for filetype in ["svg", "png", "gif", "jpg", "ico"]:
+            for filetype in ["svg", "png", "gif", "jpg", "ico", "webp"]:
                 file = Path(f"src/{icontype}/{slug}.{filetype}")
                 if file.exists():
                     found = True
