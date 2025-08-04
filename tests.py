@@ -32,7 +32,7 @@ min_image_size = 48
 placeholder_icon_hash = "398a623a3b0b10eba6d1884b0ff1713ee12aeafaa8efaf67b60a4624f4dce48c"
 
 searchEnginesFile = Path("vendor/matomo/searchengine-and-social-list/SearchEngines.yml")
-AIAssistantsFile = Path("vendor/matomo/searchengine-and-social-list/AIAssistants.yml")
+aiAssistantsFile = Path("vendor/matomo/searchengine-and-social-list/AIAssistants.yml")
 socialsEnginesFile = Path("vendor/matomo/searchengine-and-social-list/Socials.yml")
 build_script_file = Path("tmp/matomo/.github/scripts/clean-build.sh")
 
@@ -214,7 +214,7 @@ def look_for_search_and_social_icon(source, mode, outputdir: Path) -> None:
 
 def test_if_all_search_and_social_sites_have_an_icon() -> None:
     look_for_search_and_social_icon(load_yaml(searchEnginesFile), "searchengines", Path("src/searchEngines/"))
-    look_for_search_and_social_icon(load_yaml(AIAssistantsFile), "aiAssistants", Path("src/aiAssistants/"))
+    look_for_search_and_social_icon(load_yaml(aiAssistantsFile), "aiAssistants", Path("src/aiAssistants/"))
     look_for_search_and_social_icon(load_yaml(socialsEnginesFile), "socials", Path("src/socials/"))
 
 
