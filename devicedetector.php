@@ -8,7 +8,7 @@ natcasesort($brands);
 $data = [
     "os" => \DeviceDetector\Parser\OperatingSystem::getAvailableOperatingSystems(),
     "browsers" => \DeviceDetector\Parser\Client\Browser::getAvailableBrowsers(),
-    "brand" => $brands
+    "brand" => $brands,
 ];
 
 echo json_encode($data);
