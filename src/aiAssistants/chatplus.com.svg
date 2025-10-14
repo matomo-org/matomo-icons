@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="64" height="64"><svg version="1.1" id="SvgjsSvg1005" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+</style>
+<path d="M12,0h40c6.6,0,12,5.4,12,12v40c0,6.6-5.4,12-12,12H12C5.4,64,0,58.6,0,52V12C0,5.4,5.4,0,12,0z"></path>
+<path class="st0" d="M32,11c1.4,0,2.6,1,2.9,2.3l1.7,7.3c0.8,3.4,3.4,6,6.8,6.8l7.3,1.7C52,29.4,53,30.6,53,32c0,1.4-1,2.6-2.3,2.9
+	l-7.3,1.7c-3.4,0.8-6,3.4-6.8,6.8l-1.7,7.3C34.6,52,33.4,53,32,53s-2.6-1-2.9-2.3l-1.7-7.3c-0.8-3.4-3.4-6-6.8-6.8l-7.3-1.7
+	C12,34.6,11,33.4,11,32c0-1.4,1-2.6,2.3-2.9l7.3-1.7c3.4-0.8,6-3.4,6.8-6.8l1.7-7.3C29.4,12,30.6,11,32,11z"></path>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>
