@@ -52,7 +52,7 @@ jobs:
         run: |
           git fetch --depth=1 origin ${{ steps.vars.outputs.base }}
 
-          IMAGES_MODIFIED=$(git diff --name-only ${{ steps.vars.outputs.base }} -- src/ .github/workflows/convertimages.yml | wc -l)
+          IMAGES_MODIFIED=$(git diff --name-only ${{ steps.vars.outputs.base }} -- src/ convert.sh .github/workflows/convertimages.yml | wc -l)
 
           if [[ $IMAGES_MODIFIED == "0" ]]
           then

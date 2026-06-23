@@ -162,6 +162,7 @@ function loopThrough () {
         if [[ $i == *.svg ]]
         then
             resizeSvg "$i" "$distFile"
+            collectDarkModeIcon "$distFile"
             continue
         fi
         # if file (or symlink) -> didn't get deleted
@@ -175,8 +176,55 @@ function loopThrough () {
             else
                 resizeSmallIcon "$i" "$distFile"
             fi
+            collectDarkModeIcon "$distFile"
         fi
     done
+}
+
+# Decide whether a generated icon is a monochrome dark glyph that would be (nearly)
+# invisible on a dark background, and if so record it for the dark-mode stylesheet.
+# Such icons (e.g. everything in devices/, plus the grayscale brand logos) are the ones
+# Matomo inverts in dark mode; colourful logos and flags are left untouched.
+DARK_MODE_ICON_LIST="$(mktemp)"
+function collectDarkModeIcon () {
+    local file="$1"
+    case "$file" in
+        # National flags must never be recoloured, even the dark ones.
+        */flags/*) return 0 ;;
+    esac
+    [ -f "$file" ] || return 0
+
+    # Alpha-weighted average colour of the glyph in HSB (each channel 0..1). Averaging
+    # respects transparency, so only the visible pixels contribute. A near-greyscale
+    # (low saturation) and dark (low brightness) average means a dark monochrome glyph.
+    local stats saturation brightness
+    stats=$(convert "$file" -alpha on -resize 1x1\! -colorspace HSB \
+        -format "%[fx:u.g] %[fx:u.b]" info: 2>/dev/null) || return 0
+    saturation=${stats% *}
+    brightness=${stats#* }
+
+    if awk "BEGIN { exit !(${saturation:-1} < 0.12 && ${brightness:-1} < 0.5) }"
+    then
+        echo "${file#dist/}" >> "$DARK_MODE_ICON_LIST"
+    fi
+}
+
+# Emit a manifest of the collected monochrome dark glyphs (paths relative to dist/).
+# The icons repo only owns the data ("these icons are dark monochrome glyphs"); how to
+# present them (e.g. Matomo's dark-mode filter) is left to the consumer. The list is
+# fully generated, so new/changed icons are picked up without any hardcoded list.
+function generateDarkModeManifest () {
+    local out="dist/dark-monochrome-icons.json"
+    if [ -s "$DARK_MODE_ICON_LIST" ]
+    then
+        sort -u "$DARK_MODE_ICON_LIST" | awk '
+            BEGIN { printf "[" }
+            { printf "%s\n  \"%s\"", (NR > 1 ? "," : ""), $0 }
+            END { print "\n]" }' > "$out"
+    else
+        echo "[]" > "$out"
+    fi
+    rm -f "$DARK_MODE_ICON_LIST"
 }
 
 function saveVersions () {
@@ -190,6 +238,7 @@ function saveVersions () {
 function main () {
     loopThrough
     fixFlags 48
+    generateDarkModeManifest
     saveVersions
 }
 
