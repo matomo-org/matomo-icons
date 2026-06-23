@@ -194,16 +194,25 @@ function collectDarkModeIcon () {
     esac
     [ -f "$file" ] || return 0
 
-    # Alpha-weighted average colour of the glyph in HSB (each channel 0..1). Averaging
-    # respects transparency, so only the visible pixels contribute. A near-greyscale
-    # (low saturation) and dark (low brightness) average means a dark monochrome glyph.
-    local stats saturation brightness
-    stats=$(convert "$file" -alpha on -resize 1x1\! -colorspace HSB \
-        -format "%[fx:u.g] %[fx:u.b]" info: 2>/dev/null) || return 0
-    saturation=${stats% *}
+    # Skip (near-)transparent icons such as the blank "unknown" placeholders: there is no
+    # visible glyph to recolour, and their transparent average would otherwise read as black.
+    local coverage
+    coverage=$(convert "$file" -alpha extract -format "%[fx:mean]" info: 2>/dev/null) || return 0
+    awk "BEGIN { exit !(${coverage:-0} > 0.02) }" || return 0
+
+    # Alpha-weighted average colour of the glyph (each channel 0..1); averaging respects
+    # transparency so only the visible pixels contribute. We test absolute chroma
+    # (max - min channel), not HSB saturation: saturation is a ratio that explodes for
+    # near-black glyphs with a faint tint (e.g. the GitHub mark), wrongly excluding them.
+    # Low chroma means effectively greyscale, low brightness (max channel) means dark.
+    local stats chroma brightness
+    stats=$(convert "$file" -alpha on -resize 1x1\! -format \
+        "%[fx:(max(max(u.r,u.g),u.b))-(min(min(u.r,u.g),u.b))] %[fx:max(max(u.r,u.g),u.b)]" \
+        info: 2>/dev/null) || return 0
+    chroma=${stats% *}
     brightness=${stats#* }
 
-    if awk "BEGIN { exit !(${saturation:-1} < 0.12 && ${brightness:-1} < 0.5) }"
+    if awk "BEGIN { exit !(${chroma:-1} < 0.10 && ${brightness:-1} < 0.5) }"
     then
         echo "${file#dist/}" >> "$DARK_MODE_ICON_LIST"
     fi
