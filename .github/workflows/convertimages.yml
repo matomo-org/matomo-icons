@@ -7,7 +7,8 @@ on:
 permissions:
   actions: read
   checks: read
-  contents: read
+  # the "Push changes" step commits the generated dist files back to the pull request branch
+  contents: write
   deployments: none
   issues: read
   packages: none
@@ -45,9 +46,8 @@ jobs:
           echo "islocalbranch=$(expr $BASE == $GITHUB_REPOSITORY)" >> $GITHUB_OUTPUT
           echo "branch=$REF" >> $GITHUB_OUTPUT
           echo "base=$BASE_SHA" >> $GITHUB_OUTPUT
+      # keep the checkout credentials, the "Push changes" step pushes with them
       - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
         if: steps.vars.outputs.branch != ''
       - name: Check images changes
         id: imagecheck
@@ -85,7 +85,6 @@ jobs:
           sudo apt-get install imagemagick
         shell: bash
         if: steps.vars.outputs.branch != '' && steps.imagecheck.outputs.images_modified == '1'
-      # Push credentials are configured in the "Push changes" step, where they are needed.
       - name: Prepare git checkout
         run: |
           git config --global user.email "innocraft-automation@users.noreply.github.com"
@@ -114,7 +113,6 @@ jobs:
               echo "failure=1" >> $GITHUB_OUTPUT
             else
               cd $GITHUB_WORKSPACE
-              git remote set-url origin https://x-access-token:${{ secrets.CUSTOM_ACCESS_TOKEN }}@github.com/$GITHUB_REPOSITORY
               git add dist/ versions.txt
               git commit -m "Generated image files"
               git push origin "HEAD:$BRANCH_NAME"
