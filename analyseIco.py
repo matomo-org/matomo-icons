@@ -19,7 +19,7 @@ import sys
 
 file = sys.argv[1]
 
-output = subprocess.check_output("identify " + file, shell=True).decode()
+output = subprocess.check_output(["identify", file]).decode()
 icons = output.splitlines()
 
 regex = r"\d+x\d+"
